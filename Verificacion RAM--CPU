@@ -1,0 +1,15 @@
+#Comandos para CPU
+
+1)Marca y expicificacion procesador
+cat /proc/cpuinfo
+lscpu (No biene instalado por defecto)
+
+
+#Comandos para RAM
+
+1)Cantidad de RAM
+free -m
+free -g
+grep MemTotal /proc/meminfo
+grep MemTotal /proc/meminfo | awk '{print $2 / 1024}'
+vmstat -s -S M | egrep -ie 'total memory'
