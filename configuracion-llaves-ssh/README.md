@@ -23,11 +23,22 @@ ssh-keygen -t ed25519
 
 
 ## Ubicacion de la llaves generadas
-La ubicacion por defecto es el home del usuario , 
+La ubicacion por defecto es el home del usuario , al darle ssh-keyge se genera una carpeta .ssh 
 
+```
+cd /home/usuario/
+```
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen-2.JPG)
+
+al entrar en la carpeta .ssh hay 2 archivos
 ```
 cd /home/usuario/.ssh
 ```
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen2.2.JPG)
+
+id_rsa--->llave privada
+
+id_rsa.pub--->llave publica
 
 
 ```
