@@ -1,2 +1,13 @@
+#Comandos para generar y copiar llave al servidor 
 ssh-keygen
 ssh-copy-id username@remote_host
+
+#Tipos de llaves
+ssh-keygen -t rsa -b 4096
+ssh-keygen -t dsa 
+ssh-keygen -t ecdsa -b 521
+ssh-keygen -t ed25519
+
+
+
+
