@@ -1,4 +1,5 @@
-![Diagrama](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/ssh-llave-rsa.JPG)
+
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen5.1.JPG)
 
 ## Generar la llave RSA
 Para generar la llave ssh-rsa se realiza con el siguiente comando
@@ -77,7 +78,6 @@ y al darle un cat al servidor origuen id_rsa.pub
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen4.5.JPG)
 
 Como puede notar es el mismo contenido del archivo
-
 
 
 
