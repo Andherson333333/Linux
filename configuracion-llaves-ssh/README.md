@@ -1,6 +1,13 @@
+## Índice de contenidos
+* [Generar la llave RSA](#item1)
+* [Ubicacion de la llaves generadas](#item2)
+* [Ultimo paso](#item3)
+* [Ahora que ¿pasa en el servidor destino?](#item4)
+
 
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen5.1.JPG)
 
+<a name="item1"></a>
 ## Generar la llave RSA
 Para generar la llave ssh-rsa se realiza con el siguiente comando
 ```
@@ -22,7 +29,7 @@ ssh-keygen -t ecdsa -b 521
 ssh-keygen -t ed25519
 ```
 
-
+<a name="item2"></a>
 ## Ubicacion de la llaves generadas
 La ubicacion por defecto es el home del usuario , al darle ssh-keyge se genera una carpeta .ssh 
 
@@ -41,7 +48,7 @@ id_rsa--->llave privada
 
 id_rsa.pub--->llave publica
 
-
+<a name="item3"></a>
 ## Ultimo paso 
 Copiar la llave publica al servidor destino ,para hacer esto hay varias formas:
 
@@ -57,6 +64,7 @@ ahora para probar que funciona hacer login con el ssh normal como lo indica el m
 
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen3.3.JPG)
 
+<a name="item4"></a>
 ## Ahora que ¿pasa en el servidor destino?
 
 En el servidor destino en el home (/home/servidor-destino/.ssh) del usuario que se acedio se crea una carpeta .ssh .
