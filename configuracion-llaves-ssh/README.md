@@ -41,8 +41,43 @@ id_rsa--->llave privada
 id_rsa.pub--->llave publica
 
 
+## Ultimo paso 
+Copiar la llave publica al servidor destino ,para hacer esto hay varias formas:
+
+1) lanzando este comando que exporta de forma automatica y crea una carpeta en el servidor destino con la llave publica
 ```
 ssh-copy-id username@remote_host
 ```
+al realizar este comando saldra la siguiente pantalla
+
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen3.JPG)
+
+ahora para probar que funciona hacer login con el ssh normal como lo indica el mensaje de salidad
+
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen3.3.JPG)
+
+## Ahora que ¿pasa en el servidor destino?
+
+En el servidor destino en el home (/home/servidor-destino/.ssh) del usuario que se acedio se crea una carpeta .ssh .
+Dentro de esa carpeta se crea un archivo authorized_keys
+
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen4.1.JPG)
+
+Este archivo contiene la llave publica del origen es decir id_rsa.pub
+
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen4.1.JPG)
+
+Al darle un cat authorized_keys
+
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen4.2.JPG)
+
+
+y al darle un cat al servidor origuen id_rsa.pub
+
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen4.5.JPG)
+
+Como puede notar es el mismo contenido del archivo
+
+
 
 
