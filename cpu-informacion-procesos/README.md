@@ -2,7 +2,7 @@
 * [Antes de los comandos](#item1)
 * [Comandos de caracteristicas CPU](#item2)
 * [Comandos uso cpu y procesos](#item3)
-* [Ahora que ¿pasa en el servidor destino?](#item4)
+
 
 
 <a name="item1"></a>
