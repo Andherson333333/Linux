@@ -96,4 +96,49 @@ dmidecode --type processor
 
 <a name="item3"></a>
 ## Comandos uso cpu y procesos
+Estos comandos son solo 3 comandos pero , lo que tome en cuenta es que van a funcionar en casi todos los sistemas operativos incluso recien instalados , sin aceso a internet para instalar alguna herramienta
+
+1 top
+Es un comando que muestra una mini interfaz graficas que permite ver consumo de ram,cpu y otras caracteristicas.Lo buenoo de este comando que permite ver el proceso y el consumo del mismo monitorea de forma real todo tu servidor o pc
+
+```
+top
+```
+
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/cpu-informacion-procesos/imagenes/cpu8.JPG)
+
+Para salir del menu solo apretas la letra Q
+
+2 ps
+
+Este comando por si solo da poca informacion pero al utilizarlo con las flag correspondientes es muy potente parecesido al top
+aqui puede ver algunas variaciones del mismo,pondre las mas usadas pero tiene una gran cantidad de combinaciones
+
+```
+ps
+```
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/cpu-informacion-procesos/imagenes/cpu8.1.JPG)
+```
+ps -ef
+```
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/cpu-informacion-procesos/imagenes/cpu8.2.JPG)
+```
+ps -aux
+```
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/cpu-informacion-procesos/imagenes/cpu8.3.JPG)
+```
+ ps -e -o pid,uname,pcpu,pmem,comm
+```
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/cpu-informacion-procesos/imagenes/cpu8.4.JPG)
+
+
+3 vmstat
+Este comando algunas veces no biene por defecto en algunos sistemas operativos pero puedes ser util dependiendo de la situacion
+```
+ vmstat
+```
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/cpu-informacion-procesos/imagenes/cpu9.JPG)
+
+
+
 
