@@ -1,1 +1,3 @@
-
+top
+ps 
+vmstat
