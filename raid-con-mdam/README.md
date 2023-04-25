@@ -1,8 +1,23 @@
+## Índice de contenidos
+* [¿Que es un raid?](#item1)
+* [Raid por software o hardware](#item2)
+* [Tipos de raid](#item3)
+* [Mdam](#item4)
+* [ Verificacion de discos](#item5)
+* [Instalacion del mdamm](#item6)
+* [Creacion del raid con mdam](#item7)
+* [Verificacion de configuracion](#item8)
+* [Configuracion de forma permanente](#item9)
+* [Creacion de un filesystem a partir de esta raid](#item10)
 
+
+
+<a name="item1"></a>
 ## ¿Que es un raid?
 Raid (Redundant Array of Independent Disks) en Matriz Redundante de Discos Independientes, en pocas palabras son arreglos de discos para diferentes funciones,
 las 2 principales serian proteger o dar mas velocidad a los datos .
 
+<a name="item2"></a>
 ## Raid por software o hardware
 Hay 2 formas de hacer una raid por hardware o por software
 
@@ -12,6 +27,7 @@ Puede hacerlo a traves de la placa base (bios o uefi dependiendo caso) o tambien
 2 software
 Se hace arriba del sistema operativo ya sea linux o windows 
 
+<a name="item3"></a>
 ## Tipos de raid
 
 RAID 0(2 discos): división de datos se especializa en aumentar la velocidad del disco combinando ambos discos. Ejemplo si tienes 2 discos 3200 rpm + 3200 rpm = 6400 rpm 
@@ -36,10 +52,11 @@ RAID 10(raid anidados o combinados 4 discos): utiliza tanto la duplicación como
 
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/raid-10.JPG)
 
-
+<a name="item4"></a>
 ## Mdam 
 mdam es una herramienta que permite hacer raid en linux 
 
+<a name="item5"></a>
 ## Verificacion de discos
 Antes de empezar a instalar verfique que los discos se vean en su sistea operativo , puede usar varios comandos para eso
 
@@ -54,6 +71,7 @@ fdisk -l
 ```
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/fdisk-l.JPG)
 
+<a name="item6"></a>
 ## Instalacion del mdam
 
 verificar que tiene los repositorios funcionando 
@@ -70,6 +88,7 @@ apt-get install mdadm
 ```
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/apt-get-install-mdam.JPG)
 
+<a name="item7"></a>
 ## Creacion del raid con mdam
 
 al darle cat al siguiente archivo te desplegara los tipso configuraciones que se puede realizar y si hay algun raid activo
@@ -94,7 +113,7 @@ mdadm --create /dev/md0 --level=0 --raid-devices=2 /dev/sdb /dev/sdc --verbose
 ```
 mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sdb /dev/sdc --verbose
 ```
-
+<a name="item8"></a>
 ## Verificacion de configuracion
 
 Una ves aplicado el comando se puede verificar si funciono de 3 maneras :
@@ -112,7 +131,7 @@ lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT
 ```
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/verificacion-3.JPG)
 
-
+<a name="item9"></a>
 ## Configuracion de forma permanente
 
 Si reincia el servidor de esta forma todo las configuraciones se perderan , para realizar de forma permanente esta configuracion se realiza con solo 3 comandos:
@@ -146,7 +165,7 @@ update-initramfs -u
 ```
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/permanente-initfra.JPG)
 
-
+<a name="item10"></a>
 ## Creacion de un filesystem a partir de esta raid
 
 (En este caso no se va a crear un vg si no directamente un filesystem)
