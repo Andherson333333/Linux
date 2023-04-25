@@ -106,7 +106,7 @@ cat /proc/mdstat
 ```
 fdisk -l /dev/md0 /dev/md1
 ```
-![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/cat-mdstat-2.JPG)
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/verificacion-2.JPG)
 ```
 lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT
 ```
@@ -115,8 +115,36 @@ lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT
 
 ## Configuracion de forma permanente
 
-Si reincia el servidor de esta forma todo las configuraciones se perderan , para realizar de forma permanente esta configuracion se realiza con los siguientes comandos:
+Si reincia el servidor de esta forma todo las configuraciones se perderan , para realizar de forma permanente esta configuracion se realiza con solo 3 comandos:
 
+1  Scaniar el raid
+
+```
+mdadm --detail --scan
+```
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/permanente-scan.JPG)
+
+2 Manda esa salida de comando al archivo de configuracion
+
+```
+mdadm --detail --scan >> /etc/mdadm/mdadm.conf
+```
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/permanete-add.JPG)
+
+Verificamos que se copio el archivo correctamente
+
+```
+cat /etc/mdadm/mdadm.conf | grep ARRAY
+```
+
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/permanente-verificaicon.JPG)
+
+3 Actualizacion de los initramfs (arraque sistema)
+
+```
+update-initramfs -u
+```
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/permanente-initfra.JPG)
 
 
 
