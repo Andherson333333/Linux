@@ -95,24 +95,27 @@ mdadm --create /dev/md0 --level=0 --raid-devices=2 /dev/sdb /dev/sdc --verbose
 mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sdb /dev/sdc --verbose
 ```
 
-## Verificaicon de configuracion
+## Verificacion de configuracion
 
 Una ves aplicado el comando se puede verificar si funciono de 3 maneras :
 
 ```
 cat /proc/mdstat
 ```
-
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/verificaicon-1.JPG)
 ```
 fdisk -l /dev/md0 /dev/md1
 ```
-
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/cat-mdstat-2.JPG)
 ```
 lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT
 ```
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/verificacion-3.JPG)
 
 
+## Configuracion de forma permanente
 
+Si reincia el servidor de esta forma todo las configuraciones se perderan , para realizar de forma permanente esta configuracion se realiza con los siguientes comandos:
 
 
 
