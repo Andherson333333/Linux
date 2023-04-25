@@ -46,13 +46,13 @@ Antes de empezar a instalar verfique que los discos se vean en su sistea operati
 ```
 lsblk
 ```
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/lsblk.JPG)
 o tambien 
 
 ```
 fdisk -l
 ```
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/fdisk-l.JPG)
 
 ## Instalacion del mdam
 
@@ -61,16 +61,20 @@ verificar que tiene los repositorios funcionando
 ```
 apt-get update
 ```
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/apt-get-update.JPG)
 
 luego 
 
 ```
 apt-get install mdadm
 ```
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/apt-get-install-mdam.JPG)
 
 ## Creacion del raid con mdam
+
+al darle cat al siguiente archivo te desplegara los tipso configuraciones que se puede realizar y si hay algun raid activo
+
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/cat-mdstat-1.JPG)
 
 Para crear el raid se hace solo a trave de un comando que esta compuesto por las siguientes partes :
 
@@ -82,11 +86,30 @@ Para crear el raid se hace solo a trave de un comando que esta compuesto por las
 
 `verbose`para que al crear el raid genere la informacion del proceso
 
+ok una ves estudiado la sintanxis procederemos a lanzar el comando
 
+```
+mdadm --create /dev/md0 --level=0 --raid-devices=2 /dev/sdb /dev/sdc --verbose
+```
+```
+mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sdb /dev/sdc --verbose
+```
 
+## Verificaicon de configuracion
 
+Una ves aplicado el comando se puede verificar si funciono de 3 maneras :
 
+```
+cat /proc/mdstat
+```
 
+```
+fdisk -l /dev/md0 /dev/md1
+```
+
+```
+lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT
+```
 
 
 
