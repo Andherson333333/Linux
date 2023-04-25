@@ -164,7 +164,7 @@ Una ves creado procedemso a darle formato a los discos md0 y md1
 ```
 mkfs.ext4 /dev/md0 && mkfs.ext4 /dev/md1
 ```
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/fs-formato.JPG)
 
 
 Luego escribimos en el fstab los puntos de montura correspondiente
@@ -175,8 +175,32 @@ echo "/dev/md0 /raid0  ext4 defaults 1 2" >>/etc/fstab
 
 ```
 echo "/dev/md1 /raid1  ext4 defaults 1 2" >>/etc/fstab
-``
 
+```
+Verificamos si se monto correctamente
+
+```
+cat /etc/fstab | grep -E '/dev/md0|/dev/md1'
+```
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/fstab.JPG)
+
+
+y por ultimo montamos el filesystem con el comando
+
+```
+mount -a
+```
+Verificacamos que funcione
+
+```
+df -h
+```
+
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/fs-df.JPG)
+
+y luego solo creamos algunos archivos para ver si escribe
+
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/fs-verificacion.JPG)
 
 
 
