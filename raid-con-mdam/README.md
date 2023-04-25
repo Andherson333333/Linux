@@ -147,6 +147,38 @@ update-initramfs -u
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/permanente-initfra.JPG)
 
 
+## Creacion de un filesystem a partir de esta raid
+
+(En este caso no se va a crear un vg si no directamente un filesystem)
+
+Creamos el punto de mountura de los filesystem (en este caso se crear en la ruta /)
+
+```
+mkdir raid0 
+```
+```
+mkdir raid1 
+```
+Una ves creado procedemso a darle formato a los discos md0 y md1
+
+```
+mkfs.ext4 /dev/md0 && mkfs.ext4 /dev/md1
+```
+![Diagrama]()
+
+
+Luego escribimos en el fstab los puntos de montura correspondiente
+
+```
+echo "/dev/md0 /raid0  ext4 defaults 1 2" >>/etc/fstab
+```
+
+```
+echo "/dev/md1 /raid1  ext4 defaults 1 2" >>/etc/fstab
+``
+
+
+
 
 
 
