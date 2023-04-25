@@ -12,7 +12,6 @@ Puede hacerlo a traves de la placa base (bios o uefi dependiendo caso) o tambien
 2 software
 Se hace arriba del sistema operativo ya sea linux o windows 
 
-
 ## Tipos de raid
 
 RAID 0(2 discos): división de datos se especializa en aumentar la velocidad del disco combinando ambos discos. Ejemplo si tienes 2 discos 3200 rpm + 3200 rpm = 6400 rpm 
@@ -36,6 +35,58 @@ RAID 6(4 discos): creación de bandas con verificación de paridad doble (4 disc
 RAID 10(raid anidados o combinados 4 discos): utiliza tanto la duplicación como la creación de bandas
 
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/raid-10.JPG)
+
+
+## Mdam 
+mdam es una herramienta que permite hacer raid en linux 
+
+## Verificacion de discos
+Antes de empezar a instalar verfique que los discos se vean en su sistea operativo , puede usar varios comandos para eso
+
+```
+lsblk
+```
+![Diagrama]()
+o tambien 
+
+```
+fdisk -l
+```
+![Diagrama]()
+
+## Instalacion del mdam
+
+verificar que tiene los repositorios funcionando 
+
+```
+apt-get update
+```
+![Diagrama]()
+
+luego 
+
+```
+apt-get install mdadm
+```
+![Diagrama]()
+
+## Creacion del raid con mdam
+
+Para crear el raid se hace solo a trave de un comando que esta compuesto por las siguientes partes :
+
+`mdadm --create /dev/md0`Creacion de nombre del disco RAID md0 (md1,md2,md3 si el md0 esta ocupado o lo ocupa otro raid procegir con el 1 ,2,3,4 ect)
+
+`level=1`Esto es para asegurarse de que sea RAID 1 (esto son las opciones del personalities)
+
+`raid devices=2`Este comando especifica el numero de particiones que va usar para hacer el raid(sdb,sdc)
+
+`verbose`para que al crear el raid genere la informacion del proceso
+
+
+
+
+
+
 
 
 
