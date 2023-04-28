@@ -1,6 +1,16 @@
+## Índice de contenidos
+* [¿Ques es un disco duro?](#item1)
+* [Tipos de disco duro](#item2)
+* [Evaluacion de los discos](#item3)
+* [Comandos linux verificacion de almacenamiento](#item4)
+* [Comandos de linux para verificar velocidad del disco](#item5)
+* [Comandos de linux para verificar velocidad del disco](#item6)
+
+<a name="item1"></a>
 ## ¿Ques es un disco duro?
 Un disco duro es un dispositivo de almacenamiento de datos no volátil utilizado para guardar información digital de manera permanente en una computadora o servidor
 
+<a name="item2"></a>
 ## Tipos de disco duro
 Discos duros HDD (Hard Disk Drive):on los más antiguos y comunes. Utilizan discos magnéticos para almacenar datos y tienen una velocidad de lectura y escritura relativamente lenta. Suelen tener una capacidad de almacenamiento mayor que otros tipos de discos duros. (5400 RPM o 7200 RPM)
 
@@ -12,6 +22,7 @@ Discos duros SAS (Serial Attached SCSI):Discos duros SAS (Serial Attached SCSI):
 
 Nota:Los discos sdd son mas rapido que los hdd 
 
+<a name="item3"></a>
 ## Evaluacion de los discos
 Se puede decir en conclusion que podemos evaluar los disco en 2 funciones:
 
@@ -19,6 +30,7 @@ Almacenamiento
 
 Velocidad 
 
+<a name="item4"></a>
 ## Comandos linux verificacion de almacenamiento
 
 `lsblk`Este comando permite ver en un estructura de arbol de forma simplificada varias caracterisitcas entre ellas almacenamiento
@@ -44,6 +56,7 @@ fdisk -l
 ```
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/fdisk-l%20-afuera.JPG)
 
+<a name="item5"></a>
 ## Comandos de linux para verificar velocidad del disco
 ```
 hdparm -tT /dev/sda
@@ -56,6 +69,7 @@ iostat -d /dev/sda
 ```
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/velocidad-2.JPG)
 
+<a name="item6"></a>
 ## Comandos de linux para verificar modelo del disco
 
 ```
