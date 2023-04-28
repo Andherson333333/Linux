@@ -55,7 +55,6 @@ hdparm -tT /dev/sda
 iostat -d /dev/sda
 ```
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/velocidad-2.JPG)
-```
 
 ## Comandos de linux para verificar modelo del disco
 
