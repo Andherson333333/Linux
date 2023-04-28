@@ -13,15 +13,60 @@ Discos duros SAS (Serial Attached SCSI):Discos duros SAS (Serial Attached SCSI):
 Nota:Los discos sdd son mas rapido que los hdd 
 
 ## Evaluacion de los discos
-Se puede decir en conclusion que podemos evaluar los disco en 3 funciones:
+Se puede decir en conclusion que podemos evaluar los disco en 2 funciones:
 
 Almacenamiento
 
 Velocidad 
 
-
 ## Comandos linux verificacion de almacenamiento
 
-`lsblk`
+`lsblk`Este comando permite ver en un estructura de arbol de forma simplificada varias caracterisitcas entre ellas almacenamiento
 
-`df `
+```
+lsblk
+```
+
+`df `Este comando te permite ver de forma estructura como se encuentra distribuido el espacio del disco entre las particiones de linux
+
+```
+df -h
+```
+
+`fdisk`Este comando es bastante potente ya que permite eliminar,crear formatiar particiones del disco y dar informacion es mas como una herramienta
+
+```
+fdisk -l
+```
+
+## Comandos de linux para verificar velocidad del disco
+```
+hdparm -tT /dev/sda
+```
+
+```
+iostat -d /dev/sda
+```
+
+```
+lshw -class disk
+```
+
+## Comandos de linux para verificar modelo del disco
+
+```
+lshw -class disk
+```
+
+```
+hdparm -I /dev/sda
+```
+
+```
+lsblk -o NAME,SIZE,VENDOR,MODEL
+```
+
+
+
+
+
