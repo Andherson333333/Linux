@@ -1,1 +1,15 @@
+## Verificacion espacio en disco
+lsblk
+df -h 
+fdisk -l
 
+
+## Verificaicon de velocidad en disco
+hdparm -tT /dev/sda
+iostat -d /dev/sda
+
+
+## Verificacion del modelo disco
+lshw -class disk
+hdparm -I /dev/sda
+lsblk -o NAME,SIZE,VENDOR,MODEL
