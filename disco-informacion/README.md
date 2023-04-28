@@ -26,46 +26,50 @@ Velocidad
 ```
 lsblk
 ```
+![Diagrama]()
 
 `df `Este comando te permite ver de forma estructura como se encuentra distribuido el espacio del disco entre las particiones de linux
 
 ```
 df -h
 ```
+![Diagrama]()
 
 `fdisk`Este comando es bastante potente ya que permite eliminar,crear formatiar particiones del disco y dar informacion es mas como una herramienta
 
 ```
 fdisk -l
 ```
-
+![Diagrama]()
 ## Comandos de linux para verificar velocidad del disco
 ```
 hdparm -tT /dev/sda
 ```
-
+![Diagrama]()
 ```
 iostat -d /dev/sda
 ```
-
+![Diagrama]()
 ```
 lshw -class disk
 ```
-
+![Diagrama]()
 ## Comandos de linux para verificar modelo del disco
 
 ```
 lshw -class disk
 ```
+![Diagrama]()
 
 ```
 hdparm -I /dev/sda
 ```
+![Diagrama]()
 
 ```
 lsblk -o NAME,SIZE,VENDOR,MODEL
 ```
-
+![Diagrama]()
 
 
 
