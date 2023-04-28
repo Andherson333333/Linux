@@ -40,8 +40,6 @@ lsblk
 ```
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/lsblk-afuera.JPG)
 
-![Diagrama]()
-
 `df `Este comando te permite ver de forma estructura como se encuentra distribuido el espacio del disco entre las particiones de linux
 
 ```
