@@ -40,12 +40,12 @@ El script mostrará una lista de interfaces disponibles. Selecciona una interfaz
 -Se creará el archivo pingw.sh que realiza pings al gateway y la puerta de enlace. Se ejecutará pingw.sh y se programará en cron para ejecutarse cada 5 minutos.
 
 **Notas Adicionales**
--Consideraciones de Seguridad:
--El script asume que se ejecutará con privilegios de administrador (root).
--Asegúrate de revisar y ajustar la configuración según tus necesidades específicas.
--Información Adicional:
--La configuración se basa en las entradas proporcionadas por el usuario durante la ejecución del script.
--Se realizan verificaciones básicas de validez en las entradas proporcionadas.
--Registro de Actividad:
--Los archivos rt_tables, interfaces, y boot.sh se generan y registran la configuración aplicada.
--Este script facilita la configuración y automatización de la red en entornos Linux. Asegúrate de revisar y personalizar la configuración según tus --necesidades específicas antes de ejecutarlo.
+- Consideraciones de Seguridad:
+- El script asume que se ejecutará con privilegios de administrador (root).
+- Asegúrate de revisar y ajustar la configuración según tus necesidades específicas.
+- Información Adicional:
+- La configuración se basa en las entradas proporcionadas por el usuario durante la ejecución del script.
+- Se realizan verificaciones básicas de validez en las entradas proporcionadas.
+- Registro de Actividad:
+- Los archivos rt_tables, interfaces, y boot.sh se generan y registran la configuración aplicada.
+- Este script facilita la configuración y automatización de la red en entornos Linux. Asegúrate de revisar y personalizar la configuración según tus necesidades específicas antes de ejecutarlo.
