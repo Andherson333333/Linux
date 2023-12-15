@@ -1,4 +1,3 @@
-
 # Configuración de Red en Linux
 
 ## Descripción
