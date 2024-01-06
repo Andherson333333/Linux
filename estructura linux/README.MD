@@ -54,6 +54,8 @@ La estructura de Linux se organiza en capas, y su arquitectura básica se puede 
 
 La estructura de archivos en sistemas operativos basados en Linux sigue una jerarquía organizada y coherente. El sistema de archivos tiene una estructura de árbol con un directorio raíz ("/") como punto de partida. Aquí hay una descripción general de algunos directorios clave en la estructura de archivos de Linux:
 
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/estructura%20linux/imanges/linux-2.PNG)
+
 - `/ (Raíz):` Es el directorio principal desde el cual se originan todos los demás directorios.
 - `/bin (Binarios):` Contiene archivos binarios esenciales (ejecutables) que son necesarios para el funcionamiento del sistema, como comandos del sistema y utilidades.
 - `/boot (Arranque):` Contiene los archivos necesarios para el arranque del sistema, incluyendo el kernel del sistema y otros archivos de configuración.
@@ -74,7 +76,7 @@ La estructura de archivos en sistemas operativos basados en Linux sigue una jera
  `/usr (Usuarios):` Contiene subdirectorios con datos y programas utilizados por usuarios regulares.
 - `/var (Variables):` Contiene datos variables, como archivos de registro, archivos de correo y otros archivos que pueden cambiar de tamaño dinámicamente durante el uso del sistema.
 
-![Diagrama](https://github.com/Andherson333333/Linux/blob/main/estructura%20linux/imanges/linux-2.PNG)
+
 
 
 
