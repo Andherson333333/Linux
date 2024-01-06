@@ -5,9 +5,7 @@
 * [Ahora que ¿pasa en el servidor destino?](#item4)
 
 
-```
-cd /home/usuario/.ssh
-```
+
 
 
 ## Que es linux
@@ -38,9 +36,9 @@ Como se sabe linux es un sistema monolitico que se basa en el kernel para contro
 
 La estructura de Linux se organiza en capas, y su arquitectura básica se puede describir de la siguiente manera:
 
-- Kernel
-- Espacio de Usuario
-- Shell
+- Kernel El núcleo o kernel de Linux es el corazón del sistema operativo. Se encarga de gestionar los recursos del hardware, como procesadores, memoria, dispositivos de entrada/salida, y proporciona los servicios básicos para que el resto del sistema funcione.
+- Espacio de Usuario La capa superior del sistema operativo es el espacio de usuario, que incluye todos los programas y aplicaciones que los usuarios interactúan directamente. Esto abarca desde utilidades de línea de comandos hasta entornos de escritorio completos.
+- Shell El shell es la interfaz de línea de comandos que permite a los usuarios interactuar con el sistema. Los usuarios pueden ejecutar comandos directamente o escribir scripts para realizar tareas automatizadas.
 - Sistema de Archivos
 - Administrador de Paquetes
 - Librerías del Sistema
@@ -54,7 +52,7 @@ Como se sabe linux es un sistema monolitico que se basa en el kernel para contro
 ## Estructura de archivos
 
 
-
+![Diagrama]()
 
 
 
