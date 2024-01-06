@@ -52,6 +52,28 @@ La estructura de Linux se organiza en capas, y su arquitectura básica se puede 
 <a name="item5"></a>
 ## Estructura de archivos
 
+La estructura de archivos en sistemas operativos basados en Linux sigue una jerarquía organizada y coherente. El sistema de archivos tiene una estructura de árbol con un directorio raíz ("/") como punto de partida. Aquí hay una descripción general de algunos directorios clave en la estructura de archivos de Linux:
+
+- `/ (Raíz):` Es el directorio principal desde el cual se originan todos los demás directorios.
+- `/bin (Binarios):` Contiene archivos binarios esenciales (ejecutables) que son necesarios para el funcionamiento del sistema, como comandos del sistema y utilidades.
+- `/boot (Arranque):` Contiene los archivos necesarios para el arranque del sistema, incluyendo el kernel del sistema y otros archivos de configuración.
+- `/dev (Dispositivos):` Contiene archivos de dispositivos que representan interfaces a dispositivos de hardware y otros recursos del sistema.
+- `/etc (Configuración):` Almacena archivos de configuración del sistema y de aplicaciones.
+- `/home (Hogares):` Es el directorio principal para los directorios de usuarios personales. Cada usuario tiene su propio subdirectorio dentro de /home.
+- `/lib (Bibliotecas):` Contiene bibliotecas compartidas esenciales utilizadas por programas en /bin y /sbin.
+- `/media:` Se utiliza para montar dispositivos extraíbles como unidades USB y CD/DVD.
+- `/mnt (Montaje):` Es un punto de montaje temporal para sistemas de archivos adicionales.
+- `/opt (Opcionales):` Contiene paquetes de software adicionales instalados por el usuario.
+`/proc (Proceso):` Proporciona información sobre procesos en ejecución y el estado del sistema en tiempo real.
+- `/root:` Es el directorio del usuario root (superusuario).
+- `/run:` Contiene datos de tiempo de ejecución, como archivos PID y sockets, específicos para el arranque actual del sistema.
+- `/sbin (Superusuario binarios):` Almacena binarios esenciales para el sistema, utilizados por el superusuario (root).
+- `/srv (Servicios):` Contiene datos para servicios proporcionados por el sistema.
+`/sys (Sistema):` Proporciona una interfaz para interactuar con el kernel y configurar parámetros del sistema en tiempo de ejecución.
+`/tmp (Temporal):` Almacena archivos temporales utilizados por programas y usuarios.
+ `/usr (Usuarios):` Contiene subdirectorios con datos y programas utilizados por usuarios regulares.
+- `/var (Variables):` Contiene datos variables, como archivos de registro, archivos de correo y otros archivos que pueden cambiar de tamaño dinámicamente durante el uso del sistema.
+
 
 ![Diagrama]()
 
