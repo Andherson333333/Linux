@@ -1,7 +1,7 @@
 ## Índice de contenidos
 * [Que es linux?](#item1)
 * [Que es open-source?](#item2)
-* [Que es una distros](#item3)
+* [Que es una distros?](#item3)
 * [Estructrua sistema linux](#item4)
 * [Estructura de archivos](#item5)
 
@@ -29,7 +29,7 @@ Como se sabe linux es un sistema monolitico que se basa en el kernel para contro
 - Comunidad Colaborativa
 
 <a name="item3"></a>
-## Que es una distros
+## Que es una distros?
 
 "Distros" es una abreviatura comúnmente utilizada para referirse a "distribuciones" en el contexto de sistemas operativos basados en Linux. Una distribución de Linux, o distro, es una versión específica del sistema operativo Linux que incluye el kernel de Linux, software de sistema, herramientas de gestión de paquetes, y a menudo un entorno de escritorio.
 
