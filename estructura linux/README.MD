@@ -15,7 +15,7 @@ Este sistema operativo se destaca por su estabilidad, seguridad y eficiencia en 
 
 Como se sabe linux es un sistema monolitico que se basa en el kernel para controlar la mayor parte del sistema
 
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/estructura%20linux/imanges/linux-1.PNG)
 
 <a name="item2"></a>
 ## Que es open-source?
@@ -74,8 +74,7 @@ La estructura de archivos en sistemas operativos basados en Linux sigue una jera
  `/usr (Usuarios):` Contiene subdirectorios con datos y programas utilizados por usuarios regulares.
 - `/var (Variables):` Contiene datos variables, como archivos de registro, archivos de correo y otros archivos que pueden cambiar de tamaño dinámicamente durante el uso del sistema.
 
-
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/estructura%20linux/imanges/linux-2.PNG)
 
 
 
