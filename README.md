@@ -1,2 +1,2 @@
 # Linux
-Comandos y configuraciones de algunos temas de linux
+Comandos y configuraciones de algunos temas de linux 
