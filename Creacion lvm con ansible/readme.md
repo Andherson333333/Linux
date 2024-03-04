@@ -46,9 +46,9 @@ Requisitos
 Una ves verificado procedemos al servidor master donde esta instalado en ansible y vamos usar 3 archivos
 
 Tenemos 3 archivos 
-- inventario
-- modify_vars.sh
-- lvmcreate (directorio)
+- inventory (servidores a incluir)
+- modify_vars.sh (variables a modificar )
+- lvmcreate (directorio) (ejecuacion del ansible)
 
 ![Diagrama]()
 
@@ -70,14 +70,20 @@ Metemos los datos necesarios
 
 - `Nota:` Si presenta error en algun caracter puede ir y modificar las variables directamente en la ruta /lvmcreate/vars/main.yml
 
+Procedemso a ejecutar el playbook con el siguiente comando 
 
+```
+ansible-playbook -i inventory lvmcreate/lvmcreate.yml
+```
+Se ejecutaran las siguiente acciones
 
-
-
-
-
-
-
-
+-  Actualizar caché de paquetes
+-  Instalar lvm2
+-  Crear Physical Volumes (PV)
+-  Crear Volume Group (VG)
+-  Crear Logical Volume (LV)
+-   Formatear el Logical Volume (LV)
+-   Crear punto de montaje y montar el LV
+-   Agregar entrada al archivo /etc/fstab
 
 
