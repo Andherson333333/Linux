@@ -1,9 +1,12 @@
 ## Índice de contenidos
-* [Generar la llave RSA](#item1)
-* [Ubicacion de la llaves generadas](#item2)
-* [Ultimo paso](#item3)
-* [Ahora que ¿pasa en el servidor destino?](#item4)
-
+* [ Que es Ansible?](#item1)
+* [Que es Physical Volumes(pvs)?](#item2)
+* [Que es un  Grupo de volúmenes(vgs)?](#item3)
+* [Que es un  Volúmenes lógicos(lvm)?](#item4)
+* [Tipos de archivos](#item5)
+* Instalcion ansible[](#item6)
+* [Uso playbook para crear un lvm](#item7)
+* [Verificacion](#item8)
 
 <a name="item1"></a>
 ## Que es Ansible?
