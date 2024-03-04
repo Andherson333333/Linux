@@ -31,8 +31,11 @@ Ventajas:
 ## Instalcion ansible
 Esto va depender del sistema operativo que estemos usando , hay algunos como debian que tiene en el repositorio listo para la instalacion otros hay que instalarlo a traves de descarga para mas informacion por favor revisar el siguiente enlace https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 
+```
 
-## Creacion playbook con ansible galaxy
+```
 
-## Uso del playbook
+## Uso playbook para crear un lvm
+
+
 
