@@ -14,3 +14,11 @@ En el contexto de LVM, un Grupo de Volúmenes (Volume Group o VG) es una entidad
 
 Los Volúmenes Lógicos son unidades lógicas de almacenamiento creadas dentro de Grupos de Volúmenes. Se pueden considerar como particiones virtuales que pueden redimensionarse fácilmente sin afectar los datos existentes. Los Volúmenes Lógicos ofrecen flexibilidad y eficiencia en la gestión del espacio de almacenamiento en sistemas Linux que utilizan LVM.
 
+![Diagrama]()
+
+## Instalcion ansible
+
+## Creacion playbook con ansible galaxy
+
+## Uso del playbook
+
