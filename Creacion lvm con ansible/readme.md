@@ -63,6 +63,15 @@ chmod +x modify_vars.sh
 ./modify_vars.sh
 ```
 
+Una ves ejecutado les mostrara la siguiente pantalla 
+
+![Diagrama]()
+
+Metemos los datos necesarios 
+
+Nota :
+-Si presenta error en algun caracter puede ir y modificar las variables directamente en la ruta /lvmcreate/vars/main.yml
+
 
 
 
