@@ -69,9 +69,8 @@ Una ves ejecutado les mostrara la siguiente pantalla
 
 Metemos los datos necesarios 
 
-**Nota :
-
--Si presenta error en algun caracter puede ir y modificar las variables directamente en la ruta /lvmcreate/vars/main.yml
+Nota :
+- Si presenta error en algun caracter puede ir y modificar las variables directamente en la ruta /lvmcreate/vars/main.yml
 
 
 
