@@ -37,11 +37,10 @@ apt-get install ansible
 
 ## Uso playbook para crear un lvm
 
-Antes de realizar la ejecucion del scrip se debe verificar si tiene el disco agregado de forma correcta y tener ya configurada una conexion con llave ssh (https://github.com/Andherson333333/Linux/tree/main/configuracion-llaves-ssh)
+Requisitos 
+- Verificacion del disco agregado en la maquina donde se creara el Filesystem `lsblk`
+- Verificacion de a traves de llaves ssh ya establecidas https://github.com/Andherson333333/Linux/tree/main/configuracion-llaves-ssh
 
-```
-lsblk
-```
 ![Diagrama]()
 
 Una ves verificado procedemos al servidor master donde esta instalado en ansible y vamos usar 3 archivos
@@ -70,6 +69,8 @@ Una ves ejecutado les mostrara la siguiente pantalla
 Metemos los datos necesarios 
 
 - `Nota:` Si presenta error en algun caracter puede ir y modificar las variables directamente en la ruta /lvmcreate/vars/main.yml
+
+
 
 
 
