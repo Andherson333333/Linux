@@ -1,0 +1,7 @@
+---
+- name: Crear lvm formate ext4
+  hosts: Prueba
+  become: yes
+  become_user: root
+  roles:
+    - lvmcreate

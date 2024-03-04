@@ -1,0 +1,9 @@
+---
+# vars file for lvm-create
+# vars/main.yml
+
+vg: vg_test
+pvs: /dev/sdb
+lv: lv_test
+size: 2G
+

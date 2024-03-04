@@ -1,0 +1,43 @@
+- name: Actualizar caché de paquetes
+  apt:
+    update_cache: yes
+
+- name: Instalar lvm2
+  apt:
+    name: lvm2
+    state: present
+
+- name: Crear Physical Volumes (PV)
+  community.general.lvg:
+    vg: "{{ vg }}"
+    pvs:
+      - "{{ pvs }}"
+
+- name: Crear Volume Group (VG)
+  community.general.lvg:
+    vg: "{{ vg }}"
+    pvs: "{{ pvs }}"
+    state: present
+
+- name: Crear Logical Volume (LV)
+  community.general.lvol:
+    vg: "{{ vg }}"
+    lv: "{{ lv }}"
+    size: "{{ size }}"
+
+- name: Formatear el Logical Volume (LV)
+  community.general.filesystem:
+    fstype: ext4
+    dev: "/dev/{{ vg }}/{{ lv }}"
+
+- name: Crear punto de montaje y montar el LV
+  ansible.builtin.mount:
+    path: /test
+    src: "/dev/{{ vg }}/{{ lv }}"
+    fstype: ext4
+    state: mounted
+
+- name: Agregar entrada al archivo /etc/fstab
+  ansible.builtin.lineinfile:
+    path: /etc/fstab
+    line: "/dev/{{ vg }}/{{ lv }}   /test   ext4   defaults   0 0"
