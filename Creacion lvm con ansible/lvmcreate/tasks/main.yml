@@ -32,7 +32,7 @@
 
 - name: Crear punto de montaje y montar el LV
   ansible.builtin.mount:
-    path: /test
+    path: "{{ path }}"
     src: "/dev/{{ vg }}/{{ lv }}"
     fstype: ext4
     state: mounted
