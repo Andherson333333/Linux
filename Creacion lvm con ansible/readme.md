@@ -12,7 +12,7 @@ En el contexto de LVM, un Grupo de Volúmenes (Volume Group o VG) es una entidad
 
 Los Volúmenes Lógicos son unidades lógicas de almacenamiento creadas dentro de Grupos de Volúmenes. Se pueden considerar como particiones virtuales que pueden redimensionarse fácilmente sin afectar los datos existentes. Los Volúmenes Lógicos ofrecen flexibilidad y eficiencia en la gestión del espacio de almacenamiento en sistemas Linux que utilizan LVM.
 
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20lvm%20con%20ansible/imagenes/lvm-1.PNG)
 
 ## Tipos de archivos
 
@@ -41,7 +41,7 @@ Requisitos
 - Verificacion del disco agregado en la maquina donde se creara el Filesystem `lsblk`
 - Verificacion de a traves de llaves ssh ya establecidas https://github.com/Andherson333333/Linux/tree/main/configuracion-llaves-ssh
 
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20lvm%20con%20ansible/imagenes/lvm-2.PNG)
 
 Una ves verificado procedemos al servidor master donde esta instalado en ansible y vamos usar 3 archivos
 
@@ -50,7 +50,7 @@ Tenemos 3 archivos
 - modify_vars.sh (variables a modificar )
 - lvmcreate (directorio) (ejecuacion del ansible)
 
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20lvm%20con%20ansible/imagenes/lvm-3.PNG)
 
 Le damos permisos y luego ejecutamos el scrip modify_vars.sh 
 
@@ -64,7 +64,7 @@ chmod +x modify_vars.sh
 
 Una ves ejecutado les mostrara la siguiente pantalla 
 
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20lvm%20con%20ansible/imagenes/lvm-4PNG.PNG)
 
 Metemos los datos necesarios 
 
