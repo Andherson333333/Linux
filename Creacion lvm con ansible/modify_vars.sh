@@ -18,6 +18,7 @@ sed -i "s/vg:.*/vg: $new_vg/" "$vars_file"
 sed -i "s|pvs:.*|pvs: $new_pvs|" "$vars_file"
 sed -i "s/lv:.*/lv: $new_lv/" "$vars_file"
 sed -i "s/size:.*/size: $new_size/" "$vars_file"
+sed -i "s|path:.*|path: $new_path|" "$vars_file"
 
 # Mostrar valores actualizados
 echo -e "\nValores actualizados:"
