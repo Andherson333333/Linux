@@ -4,7 +4,7 @@
 * [Que es un  Grupo de volúmenes(vgs)?](#item3)
 * [Que es un  Volúmenes lógicos(lvm)?](#item4)
 * [Tipos de archivos](#item5)
-* Instalcion ansible[](#item6)
+* [Instalcion ansible](#item6)
 * [Uso playbook para crear un lvm](#item7)
 * [Verificacion](#item8)
 
