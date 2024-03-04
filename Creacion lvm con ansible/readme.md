@@ -93,17 +93,17 @@ Nos dirijimos al servidor donde creamos el filesystem y verificamos
 ```
 lsblk
 ```
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20lvm%20con%20ansible/imagenes/lvm-6.PNG)
 
 ```
 pvs && vgs && lvs
 ```
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20lvm%20con%20ansible/imagenes/lvm-7.PNG)
 
 ```
 cat /etc/fstab
 ```
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20lvm%20con%20ansible/imagenes/lvm-8.PNG)
 
 
 
