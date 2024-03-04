@@ -86,4 +86,33 @@ Se ejecutaran las siguiente acciones
 -   Crear punto de montaje y montar el LV
 -   Agregar entrada al archivo /etc/fstab
 
+## Verificacion 
+
+Nos dirijimos al servidor donde creamos el filesystem y verificamos
+
+```
+lsblk
+```
+![Diagrama]()
+
+```
+pvs && vgs && lvs
+```
+![Diagrama]()
+
+```
+cat /etc/fstab
+```
+![Diagrama]()
+
+
+
+
+
+
+
+
+
+
+
 
