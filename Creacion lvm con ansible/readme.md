@@ -32,10 +32,39 @@ Ventajas:
 Esto va depender del sistema operativo que estemos usando , hay algunos como debian que tiene en el repositorio listo para la instalacion otros hay que instalarlo a traves de descarga para mas informacion por favor revisar el siguiente enlace https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 
 ```
-
+apt-get install ansible
 ```
 
 ## Uso playbook para crear un lvm
+
+Antes de realizar la ejecucion del scrip se debe verificar si tiene el disco agregado de forma correcta 
+
+```
+lsblk
+```
+![Diagrama]()
+
+Una ves verificado procedemos al servidor master donde esta instalado en ansible y vamos usar 3 archivos
+
+Tenemos 3 archivos 
+- inventario
+- modify_vars.sh
+- lvmcreate (directorio)
+
+![Diagrama]()
+
+Le damos permisos y luego ejecutamos el scrip modify_vars.sh 
+
+```
+chmod +x modify_vars.sh
+```
+
+```
+./modify_vars.sh
+```
+
+
+
 
 
 
