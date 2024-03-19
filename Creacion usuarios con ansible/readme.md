@@ -1,7 +1,7 @@
 ## Índice de contenidos
-* [](#item1)
-* [](#item2)
-* [](#item3)
+* [Uso de este repositorio](#item1)
+* [Que es ansible](#item2)
+* [Creacion y borrado de usuarios](#item3)
 * [](#item4)
 
 
@@ -26,11 +26,20 @@ Este playbook se encarga de crear usuarios con clave generica que esta en la rut
 
 ![Diagrama]()
 
-Una ves verificada la informacion modifique el archivo `
+Una ves verificada la informacion modifique el archivo `inventory` con la ip de los servidores que desar crear el usuario . 
 
+![Diagrama]()
 
+Luego de la modicacion puede puede usar playbook con el siguiente comando
 
+```
+ansible-playbook -i inventory creacion-user/creacion-user.yml
+```
+![Diagrama]()
 
+Para verificar vamos al servidor donde se aplico la creacion del usuario
+
+![Diagrama]()
 
 
 
