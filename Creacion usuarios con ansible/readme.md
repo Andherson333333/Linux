@@ -43,7 +43,7 @@ Para verificar vamos al servidor donde se aplico la creacion del usuario
 
 Ahora vericaremos el cambio del clave al entrar al usuario (password=test)
 
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20usuarios%20con%20ansible/imagenes/verificacion-2.png)
 
 
 
