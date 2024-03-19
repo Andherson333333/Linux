@@ -15,13 +15,23 @@ Ansible es una plataforma de automatización de TI de código abierto que simpli
 
 ## Creacion y borrado de usuarios
 
-Para crear usuarios en Linux, generalmente se utilizan dos comandos: adduser y useradd. En cambio, para eliminar usuarios, se suelen emplear los comandos userdel y deluser. Sin embargo, este proceso se realiza de forma individual en cada servidor, lo que significa que debe repetirse en cada uno de ellos. En cambio con ansible se puede realizar en muchos servidores al mismo tiempo permitiendo un control y mandejo mas facil .
+Para crear usuarios en Linux, generalmente se utilizan dos comandos: `adduser `y `useradd`. En cambio, para eliminar usuarios, se suelen emplear los comandos `userdel` y `deluser`. Sin embargo, este proceso se realiza de forma individual en cada servidor, lo que significa que debe repetirse en cada uno de ellos. En cambio con ansible se puede realizar en muchos servidores al mismo tiempo permitiendo un control y mandejo mas facil .
 
 
 ## Creacion de usuarios con ansible
 
-Este playbook se encarga de crear usuarios con clave generica que esta en la ruta creacion-user/vars/main.yml si quieres colocar otra clave puede cambiarlo. Cabe destacar que el contenido de la clave tiene que ser cifrado compatible con /etc/shadow que este usando 
+`Nota:` Para utilizar Ansible, es necesario haber establecido previamente una conexión mediante una llave SSH y tener los permisos suficientes en el servidor.
+
+Este playbook se encarga de crear usuarios con clave generica que esta en la ruta `creacion-user/vars/main.yml` si quieres colocar otra clave puede cambiarlo. Cabe destacar que el contenido de la clave tiene que ser cifrado compatible con `/etc/shadow` que este usando .
 
 ![Diagrama]()
+
+Una ves verificada la informacion modifique el archivo `
+
+
+
+
+
+
 
 
