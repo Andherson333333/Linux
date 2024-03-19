@@ -2,7 +2,7 @@
 * [Uso de este repositorio](#item1)
 * [Que es ansible](#item2)
 * [Creacion y borrado de usuarios](#item3)
-* [](#item4)
+* [Borrar usuarios](#item4)
 
 
 # Uso de este repositorio
@@ -45,8 +45,20 @@ Ahora vericaremos el cambio del clave al entrar al usuario (password=test)
 
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20usuarios%20con%20ansible/imagenes/verificacion-2.png)
 
+## Borrar usuarios
 
+`Nota:` Para utilizar Ansible, es necesario haber establecido previamente una conexión mediante una llave SSH y tener los permisos suficientes en el servidor.
 
+Este playbook se utiliza para borrar varios usuarios al mismo tiempo para usarlo se lanza siguiente comando :
+
+```
+ansible-playbook -i inventory borrar-user/borrar-user.yml
+```
+![Diagrama]()
+
+Ahora verificar en los servidores o servidor correspondiente si se elimino los usuarios
+
+![Diagrama]()
 
 
 
