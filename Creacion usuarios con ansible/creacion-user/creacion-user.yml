@@ -1,0 +1,16 @@
+---
+- name: Creacion usuarios
+  hosts: Prueba
+  become: yes
+  become_user: root
+  roles:
+    - creacion-user
+
+  vars_prompt:
+    - name: user_count
+      prompt: "Ingrese la cantidad de usuarios a crear"
+      private: no
+    - name: user_names
+      prompt: "Ingrese los nombres de usuario separados por coma (,)"
+      private: no
+

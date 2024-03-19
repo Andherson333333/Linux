@@ -1,0 +1,19 @@
+---
+- name: Crear usuarios con contraseñas cifradas
+  user:
+    name: "{{ item.username }}"   # Nombre de usuario
+    password: "{{ item.password }}"      # Contraseña cifrada
+    update_password: always     # Indica que la contraseña se actualizará siempre
+    shell: /bin/bash           # Shell del usuario
+  with_items:
+    - { username: 'usuario1', password: '$y$j9T$5IR5I56Cfkwoiyiztrljh.$4ZwqxjwoOsWsu8RRMSNp6kSRoLNNewbpIiWrx1KnKp0' }
+    - { username: 'usuario2', password: '$y$j9T$5IR5I56Cfkwoiyiztrljh.$4ZwqxjwoOsWsu8RRMSNp6kSRoLNNewbpIiWrx1KnKp0' }
+    # Puedes agregar más usuarios aquí si es necesario
+
+- name: Configurar cambio de contraseña en el primer inicio de sesión
+  command: chage -d 0 "{{ item.username }}"
+  with_items:
+    - { username: 'usuario1' }
+    - { username: 'usuario2' }
+    # Agrega más usuarios aquí si es necesario
+

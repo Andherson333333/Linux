@@ -1,0 +1,15 @@
+- name: Crear usuarios
+  ansible.builtin.user:
+    name: "{{ user_names.split(',')[index] }}"
+    password: "{{ common_password }}"
+    update_password: always
+    shell: /bin/bash
+  loop: "{{ range(user_count | int) }}"
+  loop_control:
+    index_var: index
+
+- name: Configurar cambio de contraseña en el primer inicio de sesión
+  command: chage -d 0 "{{ user_names.split(',')[index] }}"
+  loop: "{{ range(user_count | int) }}"
+  loop_control:
+    index_var: index

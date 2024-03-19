@@ -1,0 +1,15 @@
+---
+- name: Solicitar nombres de usuarios a eliminar
+  pause:
+    prompt: "Ingrese los nombres de los usuarios a eliminar separados por comas"
+  register: user_input
+
+- name: Convertir entrada del usuario a lista
+  set_fact:
+    usuarios_a_eliminar: "{{ user_input.user_input.split(',') }}"
+
+- name: Eliminar usuarios
+  user:
+    name: "{{ item }}"
+    state: absent
+  loop: "{{ usuarios_a_eliminar }}"
