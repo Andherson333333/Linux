@@ -22,7 +22,7 @@ Para crear usuarios en Linux, generalmente se utilizan dos comandos: `adduser `y
 
 `Nota:` Para utilizar Ansible, es necesario haber establecido previamente una conexión mediante una llave SSH y tener los permisos suficientes en el servidor.
 
-Este playbook se encarga de crear usuarios con clave generica que esta en la ruta `creacion-user/vars/main.yml` si quieres colocar otra clave puede cambiarlo. Cabe destacar que el contenido de la clave tiene que ser cifrado compatible con `/etc/shadow` que este usando .
+Este playbook se encarga de crear usuarios con clave generica que esta en la ruta `creacion-user/vars/main.yml` si quieres colocar otra clave puede cambiarlo. Cabe destacar que el contenido de la clave tiene que ser cifrado compatible con `/etc/shadow` que este usando . Tambien tiene la funcion de que al crear usuario se lanza automaticamente el comando `chage -d 0` para que al entrar al uusario cambie la clave automaticamente
 
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20usuarios%20con%20ansible/imagenes/creacion-1.png)
 
@@ -40,6 +40,16 @@ ansible-playbook -i inventory creacion-user/creacion-user.yml
 Para verificar vamos al servidor donde se aplico la creacion del usuario
 
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20usuarios%20con%20ansible/imagenes/verificacion-1.png)
+
+Ahora vericaremos el cambio del clave al entrar al usuario (password=test)
+
+![Diagrama]()
+
+
+
+
+
+
 
 
 
