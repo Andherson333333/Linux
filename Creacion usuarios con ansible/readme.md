@@ -59,11 +59,13 @@ Este playbook se utiliza para borrar varios usuarios al mismo tiempo para usarlo
 ```
 ansible-playbook -i inventory borrar-user/borrar-user.yml
 ```
-![Diagrama]()
+Luego del lanzar el comando le pedira que ingrese los usuarios que desear borrar separados por `,`
+
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20usuarios%20con%20ansible/imagenes/borrar-1.png)
 
 Ahora verificar en los servidores o servidor correspondiente si se elimino los usuarios
 
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20usuarios%20con%20ansible/imagenes/borrar-2.png)
 
 
 
