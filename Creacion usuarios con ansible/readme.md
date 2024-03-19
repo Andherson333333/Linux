@@ -1,3 +1,10 @@
+## Índice de contenidos
+* [](#item1)
+* [](#item2)
+* [](#item3)
+* [](#item4)
+
+
 # Uso de este repositorio
 
 En este caso hay 2 playbook de ansible uno para crear usuarios y otro para borrarlos
@@ -14,4 +21,7 @@ Para crear usuarios en Linux, generalmente se utilizan dos comandos: adduser y u
 ## Creacion de usuarios con ansible
 
 Este playbook se encarga de crear usuarios con clave generica que esta en la ruta creacion-user/vars/main.yml si quieres colocar otra clave puede cambiarlo. Cabe destacar que el contenido de la clave tiene que ser cifrado compatible con /etc/shadow que este usando 
+
+![Diagrama]()
+
 
