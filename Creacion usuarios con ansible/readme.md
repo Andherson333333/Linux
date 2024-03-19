@@ -24,22 +24,22 @@ Para crear usuarios en Linux, generalmente se utilizan dos comandos: `adduser `y
 
 Este playbook se encarga de crear usuarios con clave generica que esta en la ruta `creacion-user/vars/main.yml` si quieres colocar otra clave puede cambiarlo. Cabe destacar que el contenido de la clave tiene que ser cifrado compatible con `/etc/shadow` que este usando .
 
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20usuarios%20con%20ansible/imagenes/creacion-1.png)
 
 Una ves verificada la informacion modifique el archivo `inventory` con la ip de los servidores que desar crear el usuario . 
 
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20usuarios%20con%20ansible/imagenes/creacion-2.png)
 
 Luego de la modicacion puede puede usar playbook con el siguiente comando
 
 ```
 ansible-playbook -i inventory creacion-user/creacion-user.yml
 ```
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20usuarios%20con%20ansible/imagenes/creacion-3.png)
 
 Para verificar vamos al servidor donde se aplico la creacion del usuario
 
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20usuarios%20con%20ansible/imagenes/verificacion-1.png)
 
 
 
