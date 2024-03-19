@@ -4,4 +4,6 @@ Ansible es una plataforma de automatización de TI de código abierto que simpli
 
 ## Uso playbook
 
-Este playbook se hizo con la finalidad de crear usuarios de forma masiva con una clave generica y tambien para borrar usuarios no necesarios de forma masiva
+Este playbook se hizo con la finalidad de crear usuarios de forma masiva con una clave generica y tambien para borrar usuarios no necesarios de forma masiva y controlada
+
+
