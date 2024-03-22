@@ -63,7 +63,7 @@ Luego del lanzar el comando le pedira que ingrese los usuarios que desear borrar
 
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20usuarios%20con%20ansible/imagenes/borrar-1.png)
 
-Ahora verificar en los servidores o servidor correspondiente si se elimino los usuarios
+Ahora verificar en los servidores o servidor correspondiente si se elimino los usuarios.
 
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20usuarios%20con%20ansible/imagenes/borrar-2.png)
 
