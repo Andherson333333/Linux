@@ -18,10 +18,11 @@ Para instalar un nfs en un servidor debian hay que tener acceso al repositorio m
 sudo apt update
 sudo apt install nfs-kernel-server
 ```
-Luego de eso hay que crear el directorio que deseas compartir , en este caso creare en `/storage` puede crearlo en la ruta que desea 
+Luego de eso hay que crear el directorio que deseas compartir , en este caso creare en `/storage` puede crearlo en la ruta que desea , cabe destacar que se crean con los permisos nobody:nogroup pro seguridad
 
 ```
 mkdir -p /storage
+chown -R nobody:nogroup /storage/ 
 ```
 Ahora el ultimo paso es modificar el archivo `/etc/exports` que  contiene opciones de acceso que se aplicarán a esos directorios compartidos y estas son las opciones mas utilizadas :
 
@@ -32,7 +33,9 @@ Ahora el ultimo paso es modificar el archivo `/etc/exports` que  contiene opcion
 - `no_subtree_check`deshabilita la verificación de subárbo
 - `all_squash`pción asigna todos los UID y GID a un usuario y grupo predeterminados en el servidor NFS
 
-
+Una ves verificada la opciones que desea utilizar se configura el archivo `nano /etc/exports` 
+  
+![Diagrama]()
 
 
 ## Instalacion cliente 
