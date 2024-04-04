@@ -35,7 +35,7 @@ Ahora el ultimo paso es modificar el archivo `/etc/exports` que  contiene opcion
 
 Una ves verificada la opciones que desea utilizar se configura el archivo `nano /etc/exports` 
   
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20NFS%20cliente%20servidor/imagenes/nfs-1.png)
 
 
 ## Instalacion cliente nfs
@@ -81,7 +81,7 @@ echo "192.168.80.137:/storage /storage nfs defaults 0 0" | sudo tee -a /etc/fsta
 
 Verificamos con el comando `df -h `
 
-![Diagrama]()
+![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20NFS%20cliente%20servidor/imagenes/nfs-2.png)
 
 
 
