@@ -23,6 +23,16 @@ Luego de eso hay que crear el directorio que deseas compartir , en este caso cre
 ```
 mkdir -p /storage
 ```
+Ahora el ultimo paso es modificar el archivo `/etc/exports` que  contiene opciones de acceso que se aplicarán a esos directorios compartidos y estas son las opciones mas utilizadas :
+
+- `rw (read-write)`modo lectura y escritura.
+- `ro (read-only)`modo solo lectura
+- `sync (synchronous)`operaciones de escritura en el sistema de archivos compartido deben realizarse de forma síncrona
+- `async (asynchronous)`operaciones de escritura en el sistema de archivos compartido pueden realizarse de forma asíncrona
+- `no_subtree_check`deshabilita la verificación de subárbo
+- `all_squash`pción asigna todos los UID y GID a un usuario y grupo predeterminados en el servidor NFS
+
+
 
 
 ## Instalacion cliente 
