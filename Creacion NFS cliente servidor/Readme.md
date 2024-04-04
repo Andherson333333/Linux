@@ -38,4 +38,36 @@ Una ves verificada la opciones que desea utilizar se configura el archivo `nano 
 ![Diagrama]()
 
 
-## Instalacion cliente 
+## Instalacion cliente nfs
+
+Son 3 pasos :
+
+- Instalar paquetes nfs
+- Crear punto montura
+- Montar el sistema de archivos compartido e incluirlo al `/etc/fstab`
+
+Para instalar un nfs en un servidor debian hay que tener acceso al repositorio m una ves verificado conecion al mismo se usan los siguientes comandos 
+
+```
+sudo apt update
+sudo apt install nfs-common
+```
+yo lo creare con la misma ruta y nombre pero sin los permisos `nobody:nogroup` 
+
+```
+mkdir -p /storage
+```
+
+Ahora para montar el nfs la estructura del comando se veria asi  `mount -t nfs IP_SERVIDOR:/ruta/al/directorio/compartido /mnt/nfs_share`
+
+- `mount` Este es el comando utilizado en sistemas Unix/Linux para montar un sistema de archivos
+- `-t nfs`que el tipo de sistema de archivos que se va a montar es de tipo NFS (Network File System)
+- `IP_SERVIDOR:/ruta/al/directorio/compartido`Esta es la especificación del origen del sistema de archivos que se va a montar. Aquí se indica la dirección IP del servidor NFS (IP_SERVIDOR) y la ruta completa del directorio compartido en el servidor
+- `/mnt/nfs_share`ste es el punto de montaje, es decir, la ubicación en el sistema de archivos local donde se montará el sistema de archivos NFS. En este caso, se está montando en el directorio /mnt/nfs_share.
+
+
+
+
+
+
+
