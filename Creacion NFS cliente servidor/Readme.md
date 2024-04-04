@@ -6,4 +6,12 @@ El NFS permite que un sistema acceda y monte los archivos almacenados en otro si
 
 ## Instalacion servidor
 
+Para instalar un nfs en un servidor debian hay que tener acceso al repositorio m una ves verificado conecion al mismo se usan los siguientes comandos 
+
+```
+sudo apt update
+sudo apt install nfs-kernel-server
+```
+Luego de eso hay que crear el directorio que deseas compartir , en este caso creare en `/storage` puede crearlo en la ruta que desea 
+
 ## Instalacion cliente 
