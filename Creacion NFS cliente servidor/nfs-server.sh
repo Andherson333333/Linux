@@ -23,4 +23,4 @@ echo "$carpeta $ip_cliente(rw,sync,no_subtree_check)" | sudo tee -a /etc/exports
 sudo exportfs -ra
 sudo systemctl restart nfs-kernel-server
 
-echo "Configuración completada correctamente."
+
