@@ -85,7 +85,7 @@ y al darle un cat al servidor origuen id_rsa.pub
 
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen4.5.JPG)
 
-Como puede notar es el mismo contenido del archivo
+Como puede notar es el mismo contenido del archivo 
 
 
 
