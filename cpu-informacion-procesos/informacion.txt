@@ -2,3 +2,4 @@ lscpu
 cat /proc/cpuinfo
 dmidecode --type processor
 
+
