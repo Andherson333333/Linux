@@ -141,3 +141,4 @@ cd /usr/local/bin/ && ./pingw.sh
 
 # Agregar la tarea al cron
 (crontab -l 2>/dev/null; echo "*/5 * * * * cd /usr/local/bin/ && ./pingw.sh") | crontab -
+
