@@ -48,3 +48,4 @@ Este script interactivo de Bash simplifica la configuración de la red en sistem
 - Registro de Actividad:
 - Los archivos rt_tables, interfaces, y boot.sh se generan y registran la configuración aplicada.
 - Este script facilita la configuración y automatización de la red en entornos Linux. Asegúrate de revisar y personalizar la configuración según tus necesidades específicas antes de ejecutarlo.
+  
