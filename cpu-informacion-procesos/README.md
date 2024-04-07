@@ -139,6 +139,5 @@ Este comando algunas veces no biene por defecto en algunos sistemas operativos p
 ```
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/cpu-informacion-procesos/imagenes/cpu9.JPG)
 
-
-
+ 
 
