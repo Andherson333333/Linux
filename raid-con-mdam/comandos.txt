@@ -31,3 +31,4 @@ echo "/dev/md0 /raid0  ext4 defaults 1 2" >>/etc/fstab
 echo "/dev/md1 /raid1  ext4 defaults 1 2" >>/etc/fstab
 mount -a
 df -h
+
