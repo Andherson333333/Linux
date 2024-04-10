@@ -37,6 +37,8 @@ Una ves verificada la opciones que desea utilizar se configura el archivo `nano 
   
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20NFS%20cliente%20servidor/imagenes/nfs-1.png)
 
+## Ejecucion de scrip nfs-server
+
 
 ## Instalacion cliente nfs
 
@@ -85,7 +87,7 @@ Verificamos con el comando df -f
 
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20NFS%20cliente%20servidor/imagenes/nfs-3.png)
 
-
+## Ejecutacion scrip nfs-cliente
 
 
 
