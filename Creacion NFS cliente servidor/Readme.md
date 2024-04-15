@@ -39,6 +39,13 @@ Una ves verificada la opciones que desea utilizar se configura el archivo `nano 
 
 ## Ejecucion de scrip nfs-server
 
+Para realizar esta configuracion de forma mas sencilla se realizo un scrip , para ejecutar el scrip tiene que tener los siguientes datos :
+
+- Ingresa la ruta de la carpeta a crear
+- Ingresa la dirección IP del cliente NFS
+
+Una ves sabe esto datos puede ejecutr el scrip `nfs-server.sh`
+
 
 ## Instalacion cliente nfs
 
