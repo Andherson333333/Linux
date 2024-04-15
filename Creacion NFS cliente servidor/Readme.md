@@ -1,9 +1,18 @@
+## Índice de contenidos
+* [Que es un nfs(#item1)
+* [Instalacion servidor nfs ](#item2)
+* [Ejecucion de scrip nfs-server](#item3)
+* [Instalacion cliente nfs](#item4)
+* [Ejecutacion scrip nfs-cliente](#item5)
+
+<a name="item1"></a>
 ## Que es un nfs ?
 
 NFS, que significa Network File System (Sistema de Archivos en Red), es un protocolo de comunicación que permite a los sistemas informáticos compartir archivos y recursos de almacenamiento en una red.
 
 El NFS permite que un sistema acceda y monte los archivos almacenados en otro sistema remoto como si fueran archivos locales. Esto facilita la colaboración y el intercambio de datos entre múltiples usuarios y sistemas en una red. El protocolo NFS se basa en el modelo cliente-servidor, donde el servidor de archivos almacena y gestiona los archivos, mientras que los clientes pueden acceder a estos archivos a través de la red.
 
+<a name="item2"></a>
 ## Instalacion servidor nfs 
 
 Son 3 pasos:
@@ -37,6 +46,7 @@ Una ves verificada la opciones que desea utilizar se configura el archivo `nano 
   
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20NFS%20cliente%20servidor/imagenes/nfs-1.png)
 
+<a name="item3"></a>
 ## Ejecucion de scrip nfs-server
 
 Para realizar esta configuracion de forma mas sencilla se realizo un scrip , para ejecutar el scrip tiene que tener los siguientes datos :
@@ -46,7 +56,7 @@ Para realizar esta configuracion de forma mas sencilla se realizo un scrip , par
 
 Una ves sabe esto datos puede ejecutr el scrip `nfs-server.sh`
 
-
+<a name="item4"></a>
 ## Instalacion cliente nfs
 
 Son 3 pasos :
@@ -94,6 +104,7 @@ Verificamos con el comando df -f
 
 ![Diagrama](https://github.com/Andherson333333/Linux/blob/main/Creacion%20NFS%20cliente%20servidor/imagenes/nfs-3.png)
 
+<a name="item5"></a>
 ## Ejecutacion scrip nfs-cliente
 
 Para la parte del cliente tambien puede ejcutarlo mediante un scrip pero teniendo los siguientes datos :
