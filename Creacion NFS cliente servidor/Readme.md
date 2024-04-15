@@ -96,6 +96,15 @@ Verificamos con el comando df -f
 
 ## Ejecutacion scrip nfs-cliente
 
+Para la parte del cliente tambien puede ejcutarlo mediante un scrip pero teniendo los siguientes datos :
+
+- Ingrese la ruta de montaje local (por ejemplo, /storage)
+- Ingrese la dirección IP del servidor NFS
+- Ingrese la ruta del directorio compartido en el servidor NFS
+
+Una ves sabiendo eso puede ejecutar el scrip `nfs-cliente.sh`
+  
+
 
 
 
