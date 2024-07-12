@@ -1,0 +1,113 @@
+# Guía de Configuración de Claves SSH
+
+Esta guía explica cómo generar y configurar claves SSH para un acceso remoto seguro.
+
+## Índice de contenidos
+* [Generar la llave RSA](#generar-la-llave-rsa)
+* [Ubicación de las llaves generadas](#ubicación-de-las-llaves-generadas)
+* [Último paso](#último-paso)
+* [¿Qué pasa en el servidor destino?](#qué-pasa-en-el-servidor-destino)
+
+## Generar la llave RSA
+
+Para generar una llave SSH RSA, utiliza el siguiente comando:
+
+```bash
+ssh-keygen
+```
+
+Después de ejecutar el comando, verás esta pantalla:
+
+![Pantalla de SSH Keygen](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen-1.1.JPG)
+
+Presionar enter para todas las opciones utilizará la configuración por defecto. Como puedes ver en la imagen, la llave tiene un cifrado RSA 3072 con SHA256.
+
+Nota:
+Si deseas utilizar un cifrado diferente, puedes hacerlo con la opción `-t`. Aquí hay ejemplos con diferentes tipos de cifrado:
+
+```bash
+ssh-keygen -t rsa -b 4096
+ssh-keygen -t dsa 
+ssh-keygen -t ecdsa -b 521
+ssh-keygen -t ed25519
+```
+
+## Ubicación de las llaves generadas
+
+La ubicación por defecto es el directorio home del usuario. Cuando ejecutas `ssh-keygen`, se crea una carpeta `.ssh`:
+
+```bash
+cd /home/usuario/
+```
+
+![Carpeta SSH](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen-2.JPG)
+
+Dentro de la carpeta `.ssh`, hay dos archivos:
+
+```bash
+cd /home/usuario/.ssh
+```
+
+![Archivos de Claves SSH](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen2.2.JPG)
+
+- `id_rsa`: Llave privada
+- `id_rsa.pub`: Llave pública
+
+## Último paso
+
+Copiar la llave pública al servidor destino. Hay varias formas de hacer esto:
+
+1) Utiliza este comando para exportar automáticamente y crear una carpeta en el servidor destino con la llave pública:
+
+```bash
+ssh-copy-id usuario@servidor_remoto
+```
+
+Cuando ejecutes este comando, verás la siguiente pantalla:
+
+![SSH Copy ID](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen3.JPG)
+
+Ahora, para probar si funciona, inicia sesión con el comando SSH normal como se indica en el mensaje de salida:
+
+![Inicio de Sesión SSH](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen3.3.JPG)
+
+## ¿Qué pasa en el servidor destino?
+
+En el servidor destino, en el directorio home del usuario al que se accedió (`/home/servidor-destino/.ssh`), se crea una carpeta `.ssh`.
+
+Dentro de esta carpeta, se crea un archivo `authorized_keys`:
+
+![Archivo Authorized Keys](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen4.1.JPG)
+
+Este archivo contiene la llave pública del origen, es decir, `id_rsa.pub`.
+
+Cuando haces `cat authorized_keys`:
+
+![Contenido de Authorized Keys](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen4.2.JPG)
+
+Y cuando haces `cat` al `id_rsa.pub` en el servidor de origen:
+
+![Contenido de la Llave Pública](https://github.com/Andherson333333/Linux/blob/main/configuracion-llaves-ssh/imagenes/imagen4.5.JPG)
+
+Como puedes ver, el contenido de ambos archivos es el mismo.
+
+## Referencia Rápida
+
+### Comandos para generar y copiar la llave al servidor
+```bash
+ssh-keygen
+ssh-copy-id usuario@servidor_remoto
+```
+
+### Tipos de llaves
+```bash
+ssh-keygen -t rsa -b 4096
+ssh-keygen -t dsa 
+ssh-keygen -t ecdsa -b 521
+ssh-keygen -t ed25519
+```
+
+### Ubicación de las llaves
+```
+/home/usuario/.ssh
+```
