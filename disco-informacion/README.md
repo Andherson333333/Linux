@@ -1,89 +1,108 @@
-## Índice de contenidos
-* [¿Ques es un disco duro?](#item1)
-* [Tipos de disco duro](#item2)
-* [Evaluacion de los discos](#item3)
-* [Comandos linux verificacion de almacenamiento](#item4)
-* [Comandos de linux para verificar velocidad del disco](#item5)
-* [Comandos de linux para verificar velocidad del disco](#item6)
+# Disk Information in Linux
 
-<a name="item1"></a>
-## ¿Ques es un disco duro?
-Un disco duro es un dispositivo de almacenamiento de datos no volátil utilizado para guardar información digital de manera permanente en una computadora o servidor
+This repository contains information and commands for checking disk space, speed, and model in Linux systems.
 
-<a name="item2"></a>
-## Tipos de disco duro
-Discos duros HDD (Hard Disk Drive):on los más antiguos y comunes. Utilizan discos magnéticos para almacenar datos y tienen una velocidad de lectura y escritura relativamente lenta. Suelen tener una capacidad de almacenamiento mayor que otros tipos de discos duros. (5400 RPM o 7200 RPM)
+## Table of Contents
+* [What is a Hard Disk?](#what-is-a-hard-disk)
+* [Types of Hard Disks](#types-of-hard-disks)
+* [Disk Evaluation](#disk-evaluation)
+* [Linux Commands for Storage Verification](#linux-commands-for-storage-verification)
+* [Linux Commands for Disk Speed Verification](#linux-commands-for-disk-speed-verification)
+* [Linux Commands for Disk Model Verification](#linux-commands-for-disk-model-verification)
 
-Discos duros SSD (Solid State Drive):utilizan chips de memoria flash en lugar de discos magnéticos y no tienen partes móviles, lo que los hace más rápidos y resistentes a los golpes. Tienen una capacidad de almacenamiento menor que los discos duros HDD. (hasta 500 MB/s o más)
+## What is a Hard Disk?
+A hard disk is a non-volatile data storage device used to permanently store digital information in a computer or server.
 
-Discos duros SSHD (Solid State Hybrid Drive):combinan la tecnología de discos duros HDD y SSD en un solo dispositivo. Tienen una capacidad de almacenamiento mayor que los SSD y una velocidad de lectura y escritura más rápida que los HDD.
+## Types of Hard Disks
+1. **HDD (Hard Disk Drive)**: The oldest and most common. They use magnetic disks to store data and have relatively slow read and write speeds. They usually have a larger storage capacity than other types of hard drives. (5400 RPM or 7200 RPM)
 
-Discos duros SAS (Serial Attached SCSI):Discos duros SAS (Serial Attached SCSI): son discos duros de alta velocidad diseñados para su uso en servidores empresariales y sistemas de almacenamiento en red. (velocidad 15000 RPM)
+2. **SSD (Solid State Drive)**: Use flash memory chips instead of magnetic disks and have no moving parts, making them faster and more shock-resistant. They have a lower storage capacity than HDD hard drives. (up to 500 MB/s or more)
 
-Nota:Los discos sdd son mas rapido que los hdd 
+3. **SSHD (Solid State Hybrid Drive)**: Combine HDD and SSD technology in a single device. They have a larger storage capacity than SSDs and faster read and write speeds than HDDs.
 
-<a name="item3"></a>
-## Evaluacion de los discos
-Se puede decir en conclusion que podemos evaluar los disco en 2 funciones:
+4. **SAS (Serial Attached SCSI)**: High-speed hard drives designed for use in enterprise servers and network storage systems. (15000 RPM speed)
 
-Almacenamiento
+Note: SSDs are faster than HDDs.
 
-Velocidad 
+## Disk Evaluation
+In conclusion, we can evaluate disks based on two main functions:
+1. Storage
+2. Speed
 
-<a name="item4"></a>
-## Comandos linux verificacion de almacenamiento
+## Linux Commands for Storage Verification
 
-`lsblk`Este comando permite ver en un estructura de arbol de forma simplificada varias caracterisitcas entre ellas almacenamiento
-
+### `lsblk`
+This command allows you to view various characteristics, including storage, in a simplified tree structure.
 ```
 lsblk
 ```
-![Diagrama](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/lsblk-afuera.JPG)
+![Diagram](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/lsblk-afuera.JPG)
 
-`df `Este comando te permite ver de forma estructura como se encuentra distribuido el espacio del disco entre las particiones de linux
-
+### `df`
+This command allows you to view how disk space is distributed among Linux partitions in a structured way.
 ```
 df -h
 ```
-![Diagrama](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/df%20-h.JPG)
+![Diagram](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/df%20-h.JPG)
 
-`fdisk`Este comando es bastante potente ya que permite eliminar,crear formatiar particiones del disco y dar informacion es mas como una herramienta
-
+### `fdisk`
+This command is quite powerful as it allows you to delete, create, format disk partitions and provide information. It's more like a tool.
 ```
 fdisk -l
 ```
-![Diagrama](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/fdisk-l%20-afuera.JPG)
+![Diagram](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/fdisk-l%20-afuera.JPG)
 
-<a name="item5"></a>
-## Comandos de linux para verificar velocidad del disco
+## Linux Commands for Disk Speed Verification
 ```
 hdparm -tT /dev/sda
 ```
-![Diagrama](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/velocidad-1.JPG)
+![Diagram](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/velocidad-1.JPG)
+![Diagram](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/velocidad-1%2C1.JPG)
 
-![Diagrama](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/velocidad-1%2C1.JPG)
 ```
 iostat -d /dev/sda
 ```
-![Diagrama](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/velocidad-2.JPG)
+![Diagram](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/velocidad-2.JPG)
 
-<a name="item6"></a>
-## Comandos de linux para verificar modelo del disco
-
+## Linux Commands for Disk Model Verification
 ```
 lshw -class disk
 ```
-![Diagrama](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/velocidad-3.JPG)
+![Diagram](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/velocidad-3.JPG)
 
 ```
 hdparm -I /dev/sda
 ```
-![Diagrama](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/modelo-2.JPG)
+![Diagram](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/modelo-2.JPG)
 
 ```
 lsblk -o NAME,SIZE,VENDOR,MODEL
 ```
-![Diagrama](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/modelo-3.JPG)
+![Diagram](https://github.com/Andherson333333/Linux/blob/main/disco-informacion/imagenes/modelo-3.JPG)
+
+## Quick Reference
+
+### Disk Space Verification
+```
+lsblk
+df -h 
+fdisk -l
+```
+
+### Disk Speed Verification
+```
+hdparm -tT /dev/sda
+iostat -d /dev/sda
+```
+
+### Disk Model Verification
+```
+lshw -class disk
+hdparm -I /dev/sda
+lsblk -o NAME,SIZE,VENDOR,MODEL
+```
+
+Feel free to contribute to this repository by adding more commands or improving the existing documentation!
 
 
 
