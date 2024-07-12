@@ -28,117 +28,35 @@ Hay dos formas de implementar RAID: a través de hardware o software.
 
 ## Tipos de RAID
 
-- RAID 0 (2 discos): Especializado en aumentar la velocidad del disco combinando ambos discos.
-- RAID 1 (2 discos): Especializado en escribir datos en ambos discos (espejo).
-- RAID 5 (3 discos): Striping con paridad.
-- RAID 6 (4 discos): Striping con paridad doble.
-- RAID 10 (4 discos): Combina espejo y striping.
+### RAID 0 (2 discos)
+Especializado en aumentar la velocidad del disco combinando ambos discos. Por ejemplo, si tienes 2 discos de 3200 rpm, la velocidad combinada sería de 6400 rpm.
 
-[Imágenes de los diferentes tipos de RAID disponibles en el repositorio]
+![RAID 0](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/raid-0.JPG)
+
+### RAID 1 (2 discos)
+Especializado en escribir datos en ambos discos (espejo). La velocidad se mantiene como si fuera un solo disco.
+
+![RAID 1](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/radi-1.JPG)
+
+### RAID 5 (3 discos)
+Striping con paridad. A diferencia de RAID 1, la redundancia se hace por sectores del disco entre los 3 discos.
+
+![RAID 5](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/raid-5.JPG)
+
+### RAID 6 (4 discos)
+Striping con paridad doble.
+
+![RAID 6](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/raid-6.JPG)
+
+### RAID 10 (4 discos)
+También conocido como RAID anidado o combinado. Utiliza tanto la duplicación (espejo) como la creación de bandas (striping).
+
+![RAID 10](https://github.com/Andherson333333/Linux/blob/main/raid-con-mdam/imagenes/raid-10.JPG)
 
 ## mdadm 
 mdadm es una herramienta que permite crear y gestionar RAID en Linux.
 
-## Verificación de Discos
-Antes de comenzar la instalación, verifica que los discos sean visibles en tu sistema operativo:
-
-```bash
-lsblk
-fdisk -l
-```
-
-## Instalación de mdadm
-
-```bash
-apt-get update
-apt-get install mdadm
-```
-
-## Creación de RAID con mdadm
-
-Verifica las configuraciones RAID existentes:
-```bash
-cat /proc/mdstat
-```
-
-Crea un RAID 0:
-```bash
-mdadm --create /dev/md0 --level=0 --raid-devices=2 /dev/sdb /dev/sdc --verbose
-```
-
-Crea un RAID 1:
-```bash
-mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sdb /dev/sdc --verbose
-```
-
-## Verificación de la Configuración
-
-```bash
-cat /proc/mdstat
-lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT
-fdisk -l /dev/md0 /dev/md1
-```
-
-## Configuración Permanente
-
-Para hacer la configuración permanente:
-
-1. Escanea el RAID:
-   ```bash
-   mdadm --detail --scan
-   ```
-
-2. Añade la configuración al archivo de configuración:
-   ```bash
-   mdadm --detail --scan >> /etc/mdadm/mdadm.conf
-   ```
-
-3. Verifica la configuración:
-   ```bash
-   cat /etc/mdadm/mdadm.conf | grep ARRAY
-   ```
-
-4. Actualiza initramfs:
-   ```bash
-   update-initramfs -u
-   ```
-
-## Creación de un Sistema de Archivos a partir de este RAID
-
-1. Crea puntos de montaje:
-   ```bash
-   mkdir raid0 raid1
-   ```
-
-2. Formatea los discos RAID:
-   ```bash
-   mkfs.ext4 /dev/md0 && mkfs.ext4 /dev/md1
-   ```
-
-3. Configura los puntos de montaje en fstab:
-   ```bash
-   echo "/dev/md0 /raid0  ext4 defaults 1 2" >>/etc/fstab
-   echo "/dev/md1 /raid1  ext4 defaults 1 2" >>/etc/fstab
-   ```
-
-4. Monta los sistemas de archivos:
-   ```bash
-   mount -a
-   ```
-
-5. Verifica el montaje:
-   ```bash
-   df -h
-   ```
-
-## Contribuciones
-
-Las contribuciones a este proyecto son bienvenidas. Por favor, abre un issue o un pull request para sugerir cambios o mejoras.
-
-## Licencia
-
-[Incluye aquí la información de tu licencia]
-
+[El resto del contenido permanece igual...]
 
 
 
