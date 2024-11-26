@@ -1,5 +1,5 @@
 ## Índice de contenidos
-* [Que es un nfs(#item1)
+* [Que es un nfs](#item1)
 * [Instalacion servidor nfs ](#item2)
 * [Ejecucion de scrip nfs-server](#item3)
 * [Instalacion cliente nfs](#item4)
