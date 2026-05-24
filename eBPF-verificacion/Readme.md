@@ -114,6 +114,8 @@ Salida en Debian 13 (sistema limpio):
 | `unprivileged_bpf_disabled` | 2 | 2 |
 | `perf_event_paranoid` | 3 | **1** |
 
+Puedes aplicarlo de forma manul o aplicar el scrip[ ebpf-setup.sh
+
 ```bash
 # /etc/sysctl.d/99-ebpf.conf
 net.core.bpf_jit_enable = 1
@@ -121,6 +123,7 @@ net.core.bpf_jit_harden = 1
 kernel.unprivileged_bpf_disabled = 2
 kernel.perf_event_paranoid = 1
 ```
+![ebpf-check output](https://github.com/Andherson333333/Linux/blob/main/eBPF-verificacion/images/eBPF-verificacion-2.png)
 
 ```bash
 sysctl --system
