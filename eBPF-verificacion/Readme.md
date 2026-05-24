@@ -119,13 +119,14 @@ Salida en Debian 13 (sistema limpio):
 | `perf_event_paranoid` | 3 | **1** |
 
 ```bash
-cat > /etc/sysctl.d/99-ebpf.conf << 'EOF'
+# /etc/sysctl.d/99-ebpf.conf
 net.core.bpf_jit_enable = 1
 net.core.bpf_jit_harden = 1
 kernel.unprivileged_bpf_disabled = 2
 kernel.perf_event_paranoid = 1
-EOF
+```
 
+```bash
 sysctl --system
 ```
 
