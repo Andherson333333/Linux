@@ -101,7 +101,7 @@ chmod +x ebpf-check.sh
 
 Salida en Debian 13 (sistema limpio):
 
-![ebpf-check output](images/ebpf-check-output.png)
+![ebpf-check output](https://github.com/Andherson333333/Linux/tree/main/eBPF-verificacion/images)
 
 ---
 
