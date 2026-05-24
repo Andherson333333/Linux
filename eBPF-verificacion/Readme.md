@@ -3,8 +3,6 @@
 Verificar el estado de eBPF antes de desplegar herramientas como ebpf_exporter, Tetragon, Cilium, Falco, etc.
 No se instala nada en esta guía.
 
----
-
 ## ¿Qué es eBPF?
 
 Subsistema del kernel Linux que ejecuta programas sandboxed directamente en el kernel sin modificar su código ni cargar módulos. Lo relevante: puedes observar syscalls, tráfico de red, llamadas a funciones y eventos de seguridad en tiempo real, con overhead mínimo, sin tocar las aplicaciones.
@@ -41,8 +39,6 @@ Se ejecuta en respuesta a eventos del kernel
 | RHEL/CentOS 8 | 4.18 | no | sin CO-RE |
 
 Mínimo recomendado: kernel 5.15 + BTF.
-
----
 
 ## Verificación
 
@@ -139,8 +135,6 @@ sysctl --system
 **AWS EC2** — Ubuntu 22.04/24.04 y Amazon Linux 2023 listos out-of-the-box. Driver ENA soporta XDP desde kernel 5.6+.
 
 **Amazon Linux 2 (kernel 4.14)** — sin BTF, solo funciones básicas. Actualizar kernel antes de desplegar herramientas CO-RE.
-
----
 
 ## Troubleshooting
 
