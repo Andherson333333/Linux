@@ -1,17 +1,21 @@
 # bpftrace
-
 Tracing en tiempo real del kernel Linux via eBPF. Sin reinicios, sin modificar aplicaciones.
 
-## Qué es
+## Table of Contents
+* [Qué es](#qué-es)
+* [Requisitos](#requisitos)
+* [Instalación](#instalación)
+* [Conceptos básicos](#conceptos-básicos)
+* [Comandos más útiles](#comandos-más-útiles)
+* [Probado en](#probado-en)
 
+## Qué es
 bpftrace permite ver lo que hace el kernel y cualquier proceso en tiempo real — qué archivos abre, qué conexiones hace, cuánto tarda un I/O, qué errores tiene. Todo sin instalar agentes ni tocar las apps.
 
 ## Requisitos
-
 ```bash
 # Kernel 5.15+ con BTF
 ls /sys/kernel/btf/vmlinux
-
 # JIT habilitado
 sysctl net.core.bpf_jit_enable
 # Si retorna 0:
@@ -19,22 +23,19 @@ sysctl -w net.core.bpf_jit_enable=1
 ```
 
 ## Instalación
-
 ```bash
 # Debian / Ubuntu
 apt install -y bpftrace
-
 # Verificar
 bpftrace --version
 bpftrace -e 'BEGIN { printf("OK\n"); exit(); }'
 ```
 ![Diagram](https://github.com/Andherson333333/Linux/blob/main/eBPF-bpftrace/imagenes/eBPF-bpftrace-4.png)
+
 ---
 
 ## Conceptos básicos
-
 Un programa bpftrace tiene esta forma:
-
 ```
 probe /filtro/ {
     acción
@@ -42,7 +43,6 @@ probe /filtro/ {
 ```
 
 **Probes más usados:**
-
 | Probe | Qué hookea |
 |---|---|
 | `tracepoint:syscalls:sys_enter_execve` | Cuando se ejecuta un comando |
@@ -53,7 +53,6 @@ probe /filtro/ {
 | `interval:s:N` | Cada N segundos |
 
 **Variables disponibles:**
-
 | Variable | Valor |
 |---|---|
 | `comm` | Nombre del proceso |
@@ -130,7 +129,6 @@ bpftrace -e 'kprobe:oom_kill_process {
 ---
 
 ## Probado en
-
 | OS | Kernel | bpftrace |
 |---|---|---|
-| Debian 13 | 6.12 | 0.21+ |
+| Debian 13 | 6.12 | 0.23.2 |
