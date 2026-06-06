@@ -28,7 +28,7 @@ apt install -y bpftrace
 bpftrace --version
 bpftrace -e 'BEGIN { printf("OK\n"); exit(); }'
 ```
-
+![Diagram](https://github.com/Andherson333333/Linux/blob/main/eBPF-bpftrace/imagenes/eBPF-bpftrace-4.png)
 ---
 
 ## Conceptos básicos
@@ -75,6 +75,7 @@ bpftrace -e 'tracepoint:syscalls:sys_enter_execve {
   printf("uid=%-4d user=%-12s cmd=%s\n", uid, username, str(args.filename));
 }'
 ```
+![Diagram](https://github.com/Andherson333333/Linux/blob/main/eBPF-bpftrace/imagenes/eBPF-bpftrace-5.png)
 
 ### Ver qué archivos abre un proceso
 ```bash
@@ -117,6 +118,7 @@ bpftrace -e '
 tracepoint:raw_syscalls:sys_enter { @[comm] = count(); }
 interval:s:5 { print(@, 10); clear(@); }'
 ```
+![Diagram](https://github.com/Andherson333333/Linux/blob/main/eBPF-bpftrace/imagenes/eBPF-bpftrace-6.png)
 
 ### OOM kills en tiempo real
 ```bash
