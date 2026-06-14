@@ -1,0 +1,143 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "type": "datasource",
+      "pluginId": "prometheus"
+    }
+  ],
+  "title": "ebpf_exporter — Kernel Metrics",
+  "uid": "ebpf-exporter-01",
+  "schemaVersion": 38,
+  "version": 3,
+  "refresh": "15s",
+  "time": { "from": "now-30m", "to": "now" },
+  "panels": [
+    {
+      "id": 1,
+      "title": "Disk Latency — p50 / p90 / p99 (read)",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": { "defaults": { "unit": "s", "custom": { "lineWidth": 2 } } },
+      "targets": [
+        { "expr": "histogram_quantile(0.50, rate(ebpf_exporter_bio_latency_seconds_bucket{operation=~\"read|drv_in\"}[5m]))", "legendFormat": "p50" },
+        { "expr": "histogram_quantile(0.90, rate(ebpf_exporter_bio_latency_seconds_bucket{operation=~\"read|drv_in\"}[5m]))", "legendFormat": "p90" },
+        { "expr": "histogram_quantile(0.99, rate(ebpf_exporter_bio_latency_seconds_bucket{operation=~\"read|drv_in\"}[5m]))", "legendFormat": "p99" }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Disk Latency — p50 / p90 / p99 (write)",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": { "defaults": { "unit": "s", "custom": { "lineWidth": 2 } } },
+      "targets": [
+        { "expr": "histogram_quantile(0.50, rate(ebpf_exporter_bio_latency_seconds_bucket{operation=~\"write|drv_out\"}[5m]))", "legendFormat": "p50" },
+        { "expr": "histogram_quantile(0.90, rate(ebpf_exporter_bio_latency_seconds_bucket{operation=~\"write|drv_out\"}[5m]))", "legendFormat": "p90" },
+        { "expr": "histogram_quantile(0.99, rate(ebpf_exporter_bio_latency_seconds_bucket{operation=~\"write|drv_out\"}[5m]))", "legendFormat": "p99" }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Page Cache — Ops/s por tipo",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 8 },
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": { "defaults": { "unit": "ops", "custom": { "lineWidth": 2 } } },
+      "targets": [
+        { "expr": "rate(ebpf_exporter_page_cache_ops_total[5m])", "legendFormat": "{{operation}}" }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Softirq Entry Latency — p99 por tipo",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 16 },
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": { "defaults": { "unit": "s", "custom": { "lineWidth": 2 } } },
+      "targets": [
+        { "expr": "histogram_quantile(0.99, rate(ebpf_exporter_softirq_entry_latency_seconds_bucket[5m]))", "legendFormat": "{{vec}}" }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Softirq Service Latency — p99 por tipo",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 16 },
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": { "defaults": { "unit": "s", "custom": { "lineWidth": 2 } } },
+      "targets": [
+        { "expr": "histogram_quantile(0.99, rate(ebpf_exporter_softirq_service_latency_seconds_bucket[5m]))", "legendFormat": "{{vec}}" }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Softirq Rate — raised vs serviced",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 24 },
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": { "defaults": { "unit": "ops", "custom": { "lineWidth": 2 } } },
+      "targets": [
+        { "expr": "rate(ebpf_exporter_softirq_raised_total[5m])", "legendFormat": "raised {{vec}}" },
+        { "expr": "rate(ebpf_exporter_softirq_serviced_total[5m])", "legendFormat": "serviced {{vec}}" }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "TCP Retransmits IPv4 rate/s",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 32 },
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": { "defaults": { "unit": "ops", "custom": { "lineWidth": 2 } } },
+      "targets": [
+        { "expr": "rate(ebpf_exporter_tcp_retransmit_ipv4_packets_total[5m])", "legendFormat": "retransmits/s" }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "OOM Kills",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 32 },
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": { "defaults": { "unit": "short", "custom": { "lineWidth": 2 } } },
+      "targets": [
+        { "expr": "increase(ebpf_exporter_decoder_errors_total[5m])", "legendFormat": "oom kills" }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Programas eBPF activos",
+      "type": "stat",
+      "gridPos": { "h": 4, "w": 6, "x": 0, "y": 40 },
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": { "defaults": { "unit": "short" } },
+      "targets": [
+        { "expr": "count(ebpf_exporter_ebpf_program_attached == 1)", "legendFormat": "programas" }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Decoder Errors",
+      "type": "stat",
+      "gridPos": { "h": 4, "w": 6, "x": 6, "y": 40 },
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "thresholds": {
+            "steps": [
+              { "color": "green", "value": 0 },
+              { "color": "red", "value": 1 }
+            ]
+          }
+        }
+      },
+      "targets": [
+        { "expr": "sum(ebpf_exporter_decoder_errors_total)", "legendFormat": "errors" }
+      ]
+    }
+  ]
+}
