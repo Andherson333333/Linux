@@ -50,6 +50,8 @@ docker compose up -d
 docker compose ps
 ```
 
+![Stack corriendo](https://github.com/Andherson333333/Linux/blob/main/eBPF-bpftrace-monitoring/server/imagen/eBPF-bpftrace-monitoring-1.png)
+
 ## Verificar
 
 ```bash
@@ -65,6 +67,8 @@ curl -s http://localhost:3100/ready
 # Grafana
 curl -s http://localhost:3000/api/health
 ```
+
+![Health checks](https://github.com/Andherson333333/Linux/blob/main/eBPF-bpftrace-monitoring/server/imagen/eBPF-bpftrace-monitoring-2.png)
 
 ## Accesos
 
@@ -82,6 +86,8 @@ Importar en Grafana → Dashboards → New → Import:
 |---|---|---|
 | Node Exporter Full | ID `1860` | CPU, RAM, disco, red |
 | ebpf_exporter | JSON del repo (`../dashboards/ebpf-exporter.json`) | Métricas kernel |
+
+![Node Exporter Full](https://github.com/Andherson333333/Linux/blob/main/eBPF-bpftrace-monitoring/server/imagen/eBPF-bpftrace-monitoring-4.png)
 
 ## Versiones probadas
 
