@@ -1,0 +1,70 @@
+// audit.bt — Auditoría de eventos del sistema en tiempo real
+// Eventos: execve, file errors, TCP connect, OOM kills, SIGSEGV
+
+// --- Comandos ejecutados por usuarios ---
+tracepoint:syscalls:sys_enter_execve
+/uid >= 0/
+{
+    time("%Y-%m-%dT%H:%M:%S ");
+    printf("event=exec uid=%d user=%s pid=%d comm=%s cmd=", uid, username, pid, comm);
+    join(args.argv);
+}
+
+// --- Archivos que no se encuentran (ENOENT/EACCES) por proceso real ---
+tracepoint:syscalls:sys_enter_openat
+{
+    @fn[tid] = args.filename;
+}
+
+tracepoint:syscalls:sys_exit_openat
+/args.ret == -2 && uid >= 1000
+&& !strncmp(str(@fn[tid]), "/usr/share/locale", 17)
+&& !strncmp(str(@fn[tid]), "/usr/libexec/sudo", 17)
+&& !strncmp(str(@fn[tid]), "/usr/lib/locale",  15)
+&& !strncmp(str(@fn[tid]), "/proc/",            6)/
+{
+    time("%Y-%m-%dT%H:%M:%S ");
+    printf("event=file_error uid=%d user=%s pid=%d comm=%s error=ENOENT file=%s\n",
+        uid, username, pid, comm, str(@fn[tid]));
+}
+
+tracepoint:syscalls:sys_exit_openat
+/args.ret == -13 && uid >= 1000
+&& !strncmp(str(@fn[tid]), "/usr/share/locale", 17)
+&& !strncmp(str(@fn[tid]), "/usr/libexec/sudo", 17)/
+{
+    time("%Y-%m-%dT%H:%M:%S ");
+    printf("event=file_error uid=%d user=%s pid=%d comm=%s error=EACCES file=%s\n",
+        uid, username, pid, comm, str(@fn[tid]));
+}
+
+// --- Limpieza catch-all — evita map full bajo alta carga ---
+tracepoint:syscalls:sys_exit_openat
+{
+    delete(@fn[tid]);
+}
+
+// --- Conexiones TCP nuevas ---
+kprobe:tcp_connect
+{
+    time("%Y-%m-%dT%H:%M:%S ");
+    printf("event=tcp_connect uid=%d user=%s pid=%d comm=%s\n",
+        uid, username, pid, comm);
+}
+
+// --- OOM Kills ---
+kprobe:oom_kill_process
+{
+    time("%Y-%m-%dT%H:%M:%S ");
+    printf("event=oom_kill uid=%d user=%s pid=%d comm=%s\n",
+        uid, username, pid, comm);
+}
+
+// --- SIGSEGV crashes ---
+tracepoint:signal:signal_deliver
+/args.sig == 11/
+{
+    time("%Y-%m-%dT%H:%M:%S ");
+    printf("event=sigsegv uid=%d user=%s pid=%d comm=%s\n",
+        uid, username, pid, comm);
+}
