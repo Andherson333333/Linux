@@ -1,0 +1,31 @@
+services:
+  alloy:
+    image: grafana/alloy:v1.16.2
+    container_name: alloy
+    environment:
+      - HOST_HOSTNAME=cliente
+      - TZ=America/Caracas
+    volumes:
+      - ./config.alloy:/etc/alloy/config.alloy
+      - alloy-data:/var/lib/alloy/data
+      - /:/host/root:ro,rslave
+      - /var/log:/var/log:ro
+      - /var/log/journal:/var/log/journal:ro
+      - /etc/machine-id:/etc/machine-id:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+    command: >
+      run
+      --server.http.listen-addr=0.0.0.0:12345
+      --storage.path=/var/lib/alloy/data
+      /etc/alloy/config.alloy
+    ports:
+      - "12345:12345"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+    user: root
+
+volumes:
+  alloy-data:
