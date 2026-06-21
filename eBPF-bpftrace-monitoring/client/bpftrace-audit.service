@@ -1,0 +1,15 @@
+[Unit]
+Description=bpftrace audit — kernel event logger
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/bpftrace /etc/bpftrace/audit.bt
+StandardOutput=append:/var/log/bpftrace-audit.log
+StandardError=journal
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
