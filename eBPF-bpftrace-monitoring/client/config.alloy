@@ -1,0 +1,182 @@
+// ==============================================
+// node_exporter
+// ==============================================
+
+prometheus.exporter.unix "node" {
+  rootfs_path = "/host/root"
+  procfs_path = "/host/proc"
+  sysfs_path  = "/host/sys"
+  disable_collectors = ["ipvs", "btrfs", "infiniband", "xfs", "zfs"]
+  filesystem {
+    fs_types_exclude     = "^(autofs|binfmt_misc|bpf|cgroup2?|configfs|debugfs|devpts|devtmpfs|tmpfs|fusectl|hugetlbfs|iso9660|mqueue|nsfs|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|selinuxfs|squashfs|sysfs|tracefs)$"
+    mount_points_exclude = "^/(dev|proc|run/credentials/.+|sys|var/lib/docker/.+)($|/)"
+    mount_timeout        = "5s"
+  }
+  netclass { ignored_devices = "^(veth.*|[a-f0-9]{15})$" }
+  netdev   { device_exclude  = "^(veth.*|[a-f0-9]{15})$" }
+}
+
+discovery.relabel "node" {
+  targets = prometheus.exporter.unix.node.targets
+  rule {
+    target_label = "instance"
+    replacement  = env("HOST_HOSTNAME")
+  }
+  rule {
+    target_label = "nodename"
+    replacement  = env("HOST_HOSTNAME")
+  }
+  rule {
+    target_label = "job"
+    replacement  = "integrations/node_exporter"
+  }
+}
+
+prometheus.scrape "node" {
+  targets         = discovery.relabel.node.output
+  forward_to      = [prometheus.remote_write.monitoring.receiver]
+  scrape_interval = "15s"
+}
+
+// ==============================================
+// ebpf_exporter
+// ==============================================
+
+prometheus.scrape "ebpf_exporter" {
+  targets = [{
+    __address__ = "host.docker.internal:9435",
+  }]
+  forward_to      = [prometheus.remote_write.monitoring.receiver]
+  scrape_interval = "15s"
+  job_name        = "ebpf_exporter"
+}
+
+// ==============================================
+// Remote write → Prometheus
+// ==============================================
+
+prometheus.remote_write "monitoring" {
+  endpoint {
+    url = "http://192.168.133.239:9090/api/v1/write"
+  }
+}
+
+// ==============================================
+// bpftrace audit log
+// ==============================================
+
+local.file_match "bpftrace" {
+  path_targets = [{
+    __path__ = "/var/log/bpftrace-audit.log",
+    job       = "bpftrace-audit",
+    host      = env("HOST_HOSTNAME"),
+  }]
+}
+
+loki.source.file "bpftrace" {
+  targets               = local.file_match.bpftrace.targets
+  forward_to            = [loki.process.bpftrace.receiver]
+  legacy_positions_file = "/var/lib/alloy/data/positions-bpftrace.yaml"
+}
+
+loki.process "bpftrace" {
+  forward_to = [loki.write.monitoring.receiver]
+
+  stage.regex {
+    expression = "(?P<ts>\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2})"
+  }
+  stage.timestamp {
+    source            = "ts"
+    format            = "2006-01-02T15:04:05"
+    location          = "America/Caracas"
+    action_on_failure = "skip"
+  }
+  stage.logfmt {
+    mapping = {
+      "event" = "event",
+      "uid"   = "uid",
+      "user"  = "user",
+      "comm"  = "comm",
+    }
+  }
+  stage.labels {
+    values = {
+      event = "event",
+      uid   = "uid",
+      user  = "user",
+      comm  = "comm",
+    }
+  }
+}
+
+// ==============================================
+// Logs del sistema
+// ==============================================
+
+local.file_match "sistema" {
+  path_targets = [
+    { __path__ = "/var/log/*.log",    job = "sistema", host = env("HOST_HOSTNAME") },
+    { __path__ = "/var/log/**/*.log", job = "sistema", host = env("HOST_HOSTNAME") },
+  ]
+}
+
+loki.source.file "sistema" {
+  targets               = local.file_match.sistema.targets
+  forward_to            = [loki.process.sistema.receiver]
+  legacy_positions_file = "/var/lib/alloy/data/positions-sistema.yaml"
+}
+
+loki.process "sistema" {
+  forward_to = [loki.write.monitoring.receiver]
+
+  stage.regex {
+    expression = "(?P<ts>\\d{4}-\\d{2}-\\d{2}[T ]\\d{2}:\\d{2}:\\d{2})"
+  }
+  stage.timestamp {
+    source            = "ts"
+    format            = "2006-01-02 15:04:05"
+    fallback_formats  = ["2006-01-02T15:04:05"]
+    location          = "America/Caracas"
+    action_on_failure = "skip"
+  }
+  stage.drop {
+    source              = "__path__"
+    expression          = ".*bpftrace-audit.*"
+    drop_counter_reason = "excluded"
+  }
+}
+
+// ==============================================
+// Journald
+// ==============================================
+
+loki.source.journal "journal" {
+  path       = "/var/log/journal"
+  forward_to = [loki.relabel.journal.receiver]
+}
+
+loki.relabel "journal" {
+  forward_to = [loki.write.monitoring.receiver]
+  rule {
+    target_label = "host"
+    replacement  = env("HOST_HOSTNAME")
+  }
+  rule {
+    source_labels = ["__journal__systemd_unit"]
+    target_label  = "unit"
+  }
+  rule {
+    target_label = "job"
+    replacement  = "journal"
+  }
+}
+
+// ==============================================
+// Loki write
+// ==============================================
+
+loki.write "monitoring" {
+  endpoint {
+    url = "http://192.168.133.239:3100/loki/api/v1/push"
+  }
+}
