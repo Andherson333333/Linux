@@ -83,7 +83,7 @@ loki.process "bpftrace" {
   forward_to = [loki.write.monitoring.receiver]
 
   stage.regex {
-    expression = "^(?P<ts>\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2})\\s+(?P<rest>.*)$"
+    expression = "^(?P<ts>\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2})\\s+event=(?P<event>\\S+)\\s+uid=(?P<uid>\\S+)\\s+user=(?P<user>\\S+)\\s+pid=(?P<pid>\\S+)\\s+comm=(?P<comm>\\S+)\\s*(?P<rest>.*)$"
   }
   stage.timestamp {
     source            = "ts"
@@ -93,14 +93,6 @@ loki.process "bpftrace" {
   }
   stage.output {
     source = "rest"
-  }
-  stage.logfmt {
-    mapping = {
-      "event" = "event",
-      "uid"   = "uid",
-      "user"  = "user",
-      "comm"  = "comm",
-    }
   }
   stage.labels {
     values = {
