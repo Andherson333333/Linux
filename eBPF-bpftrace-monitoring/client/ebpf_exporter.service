@@ -1,0 +1,15 @@
+[Unit]
+Description=ebpf_exporter
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/bin/ebpf_exporter \
+  --config.dir=/etc/ebpf_exporter \
+  --config.names=biolatency,oomkill,tcp-retransmit,cachestat,softirq-latency
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
