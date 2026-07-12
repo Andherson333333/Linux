@@ -18,7 +18,7 @@ Replica 2, LVM (PV/VG/LV), 2 nodos.
 | Paso | Node1 | Node2 |
 |---|---|---|
 | Peer probe | `gluster peer probe 192.168.133.252` | `gluster peer probe 192.168.133.251` |
-| Crear volumen | ✅ único lugar | ❌ no se ejecuta aquí |
+| Crear volumen |  único lugar |  no se ejecuta aquí |
 | Mount FUSE | `192.168.133.251:/vol1` | `192.168.133.252:/vol1` |
 
 ---
