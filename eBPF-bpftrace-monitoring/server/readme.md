@@ -89,6 +89,9 @@ Importar en Grafana → Dashboards → New → Import:
 
 ![Node Exporter Full](https://github.com/Andherson333333/Linux/blob/main/eBPF-bpftrace-monitoring/server/imagen/eBPF-bpftrace-monitoring-4.png)
 
+
+![Node Exporter Full](https://github.com/Andherson333333/Linux/blob/main/eBPF-bpftrace-monitoring/server/imagen/eBPF-bpftrace-monitoring-5.png)
+
 ## Versiones probadas
 
 | Imagen | Versión |
